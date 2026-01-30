@@ -1,26 +1,100 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-navy-50: #e6e7eb;
+  --color-navy-100: #c0c3cc;
+  --color-navy-200: #969bab;
+  --color-navy-300: #6c7389;
+  --color-navy-400: #4d5570;
+  --color-navy-500: #2d3757;
+  --color-navy-600: #28314f;
+  --color-navy-700: #222a46;
+  --color-navy-800: #1c233c;
+  --color-navy-900: #1a1f36;
+  --color-navy-950: #0d1020;
+  --color-coral-50: #fef0eb;
+  --color-coral-100: #fdd8cc;
+  --color-coral-200: #f9b09a;
+  --color-coral-300: #f58967;
+  --color-coral-400: #f26f45;
+  --color-coral-500: #EF5E33;
+  --color-coral-600: #e0502a;
+  --color-coral-700: #c44022;
+  --color-coral-800: #a8351b;
+  --color-coral-900: #8c2a14;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1f36;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4d5570;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6c7389;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #EF5E33, #f58967);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(26, 31, 54, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glow effect */
+.glow-coral {
+  box-shadow: 0 0 40px rgba(239, 94, 51, 0.3);
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(239, 94, 51, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(239, 94, 51, 0.4); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
 }
