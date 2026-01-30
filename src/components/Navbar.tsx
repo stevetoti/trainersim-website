@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const APP_URL = 'https://trainer-sim.vercel.app/auth';
+const APP_URL = 'https://app.trainersim.com/auth';
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -31,8 +31,8 @@ export default function Navbar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-18">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex items-center justify-between h-18 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-shadow">

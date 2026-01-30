@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const APP_URL = 'https://trainer-sim.vercel.app/auth';
+const APP_URL = 'https://app.trainersim.com/auth';
 
 const columns = [
   {
@@ -48,9 +48,9 @@ const columns = [
 export default function Footer() {
   return (
     <footer className="bg-dark-950 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
         {/* Top: logo + columns */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-12">
           {/* Brand column */}
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-2.5 mb-5">
@@ -69,7 +69,7 @@ export default function Footer() {
                 Trainer<span className="gradient-text">Sim</span>
               </span>
             </Link>
-            <p className="text-sm text-dark-300 leading-relaxed max-w-xs mb-6">
+            <p className="text-base text-dark-300 leading-relaxed max-w-sm mb-8">
               AI-powered training simulations with 380 agents across 12 industries. 
               Master high-stakes conversations with confidence.
             </p>
@@ -97,11 +97,11 @@ export default function Footer() {
           {/* Link columns */}
           {columns.map((col) => (
             <div key={col.title}>
-              <h3 className="text-sm font-semibold text-white mb-4">{col.title}</h3>
-              <ul className="space-y-3">
+              <h3 className="text-base font-semibold text-white mb-6">{col.title}</h3>
+              <ul className="space-y-4">
                 {col.links.map((l) => (
                   <li key={l.label}>
-                    <a href={l.href} className="text-sm text-dark-300 hover:text-white transition-colors">
+                    <a href={l.href} className="text-base text-dark-300 hover:text-white transition-colors">
                       {l.label}
                     </a>
                   </li>
@@ -112,11 +112,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-dark-400">
+        <div className="mt-16 pt-10 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <p className="text-sm text-dark-400">
             &copy; {new Date().getFullYear()} TrainerSim by Pacific Wave Digital. All rights reserved.
           </p>
-          <p className="text-xs text-dark-400">
+          <p className="text-sm text-dark-400">
             380 AI agents · 12 industries · Unlimited potential
           </p>
         </div>
