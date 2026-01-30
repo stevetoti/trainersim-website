@@ -8,8 +8,20 @@ export const metadata: Metadata = {
     default: "TrainerSim — AI-Powered Training Simulations",
     template: "%s | TrainerSim",
   },
-  description: "Master high-stakes conversations with AI-powered training simulations. Video, audio, and text-based practice for sales, healthcare, customer service, and more.",
-  keywords: ["AI training", "simulation training", "sales training", "conversation practice", "AI role play", "professional development", "training platform"],
+  description:
+    "380 AI agents across 12 industries. Practice high-stakes conversations with video & audio AI simulations. Real-time scoring, team analytics, and certifications.",
+  keywords: [
+    "AI training simulation",
+    "sales training AI",
+    "healthcare simulation",
+    "customer service training",
+    "AI role play",
+    "professional development",
+    "training platform",
+    "conversation practice",
+    "AI avatar training",
+    "team training analytics",
+  ],
   authors: [{ name: "Pacific Wave Digital" }],
   creator: "TrainerSim",
   openGraph: {
@@ -18,7 +30,8 @@ export const metadata: Metadata = {
     url: "https://www.trainersim.com",
     siteName: "TrainerSim",
     title: "TrainerSim — AI-Powered Training Simulations",
-    description: "Master high-stakes conversations with AI-powered training simulations. Video, audio, and text-based practice for professionals.",
+    description:
+      "380 AI agents across 12 industries. Master high-stakes conversations with realistic AI simulations.",
     images: [
       {
         url: "/images/og-image.png",
@@ -31,16 +44,14 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "TrainerSim — AI-Powered Training Simulations",
-    description: "Master high-stakes conversations with AI-powered training simulations.",
+    description:
+      "380 AI agents across 12 industries. Master conversations with AI.",
     images: ["/images/og-image.png"],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
+    googleBot: { index: true, follow: true },
   },
 };
 
@@ -50,33 +61,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
-        {/* Google Analytics placeholder */}
-        {/* 
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-XXXXXXXXXX');
-            `,
-          }}
-        />
-        */}
       </head>
-      <body className="bg-navy-900 text-white antialiased">
+      <body className="bg-dark-900 text-white antialiased">
         <Navbar />
         <main>{children}</main>
         <Footer />
-        
-        {/* Schema.org structured data */}
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -86,7 +79,8 @@ export default function RootLayout({
               name: "TrainerSim",
               applicationCategory: "BusinessApplication",
               operatingSystem: "Web",
-              description: "AI-powered training simulations for professionals",
+              description:
+                "AI-powered training simulations with 380 agents across 12 industries",
               url: "https://www.trainersim.com",
               author: {
                 "@type": "Organization",

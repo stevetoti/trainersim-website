@@ -1,554 +1,824 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import SectionHeading from '@/components/SectionHeading';
-import CTABanner from '@/components/CTABanner';
+import Link from 'next/link';
+
+const APP_URL = 'https://trainer-sim.vercel.app/auth';
+
+/* ─── animation helpers ─── */
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1, duration: 0.6, ease: 'easeOut' as const },
+  }),
+};
+
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    transition: { delay: i * 0.1, duration: 0.6 },
+  }),
+};
+
+const stagger = {
+  visible: { transition: { staggerChildren: 0.12 } },
+};
+
+/* ─── data ─── */
+const stats = [
+  { value: '10,000+', label: 'Training Sessions' },
+  { value: '95%', label: 'Satisfaction Rate' },
+  { value: '40%', label: 'Performance Improvement' },
+  { value: '500+', label: 'Organizations' },
+];
 
 const features = [
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M15 10L19.553 7.724C19.7054 7.64784 19.8748 7.61188 20.045 7.6195C20.2152 7.62712 20.3806 7.67808 20.5256 7.76765C20.6706 7.85722 20.7902 7.98233 20.873 8.13113C20.9557 8.27993 20.9988 8.44756 21 8.618V15.382C20.9988 15.5524 20.9557 15.7201 20.873 15.8689C20.7902 16.0177 20.6706 16.1428 20.5256 16.2324C20.3806 16.3219 20.2152 16.3729 20.045 16.3805C19.8748 16.3881 19.7054 16.3522 19.553 16.276L15 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <rect x="3" y="6" width="12" height="12" rx="2" stroke="currentColor" strokeWidth="2"/>
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
       </svg>
     ),
-    title: 'AI-Powered Video Simulations',
-    description: 'Practice with lifelike AI avatars powered by cutting-edge technology. Experience realistic facial expressions, emotions, and natural conversation flow.',
+    title: 'AI Simulations',
+    desc: '380 AI agents across 12 categories. Each persona stays 100% in character with realistic responses, emotions, and adaptive conversation flow.',
+    gradient: 'from-blue-500 to-cyan-400',
   },
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M22 12H18L15 21L9 3L6 12H2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
       </svg>
     ),
-    title: 'Real-Time Performance Scoring',
-    description: 'Get instant feedback on empathy, communication clarity, professionalism, and technique. AI-powered scoring helps you improve with every session.',
+    title: 'Video & Audio Modes',
+    desc: 'Premium video avatars powered by Anam AI or cost-effective audio mode with ElevenLabs voices. Choose the experience that fits your budget.',
+    gradient: 'from-purple-500 to-pink-400',
   },
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 5C4 4.44772 4.44772 4 5 4H9C9.55228 4 10 4.44772 10 5V9C10 9.55228 9.55228 10 9 10H5C4.44772 10 4 9.55228 4 9V5Z" stroke="currentColor" strokeWidth="2"/>
-        <path d="M14 5C14 4.44772 14.4477 4 15 4H19C19.5523 4 20 4.44772 20 5V9C20 9.55228 19.5523 10 19 10H15C14.4477 10 14 9.55228 14 9V5Z" stroke="currentColor" strokeWidth="2"/>
-        <path d="M4 15C4 14.4477 4.44772 14 5 14H9C9.55228 14 10 14.4477 10 15V19C10 19.5523 9.55228 20 9 20H5C4.44772 20 4 19.5523 4 19V15Z" stroke="currentColor" strokeWidth="2"/>
-        <path d="M14 15C14 14.4477 14.4477 14 15 14H19C19.5523 14 20 14.4477 20 15V19C20 19.5523 19.5523 20 19 20H15C14.4477 20 14 19.5523 14 19V15Z" stroke="currentColor" strokeWidth="2"/>
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
       </svg>
     ),
-    title: '100+ Industry Scenarios',
-    description: 'From healthcare patient conversations to high-pressure sales calls. Pre-built scenarios across 12+ industries, ready to use immediately.',
+    title: 'Real-Time Scoring',
+    desc: 'Weighted scoring across Communication, Knowledge, Confidence, Problem Solving, and Professionalism. Time-based caps ensure genuine practice.',
+    gradient: 'from-emerald-500 to-teal-400',
   },
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="9" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
-        <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
       </svg>
     ),
-    title: 'Team Management & Analytics',
-    description: 'Track team performance, identify skill gaps, and measure training ROI. Manager dashboards give you complete visibility into your team\'s growth.',
+    title: 'Custom Scenarios',
+    desc: 'Build custom training scenarios for your organization. Create AI personas that match your exact customer profiles and conversation types.',
+    gradient: 'from-orange-500 to-amber-400',
   },
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7V21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H2V3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M22 3H16C14.9391 3 13.9217 3.42143 13.1716 4.17157C12.4214 4.92172 12 5.93913 12 7V21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H22V3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
       </svg>
     ),
-    title: 'Learning Pathways & Certifications',
-    description: 'Structured learning paths guide trainees from beginner to expert. Issue certificates upon completion to validate professional competency.',
+    title: 'Team Management',
+    desc: 'Multi-tenant platform with role-based access. Manager dashboards, team analytics, session transcripts, and PDF reports for every member.',
+    gradient: 'from-blue-500 to-indigo-400',
   },
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/>
-        <path d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
       </svg>
     ),
-    title: 'Multi-Modal Training',
-    description: 'Train via video, audio, or text chat — whatever suits your learning style. Switch between modes seamlessly within any scenario.',
+    title: 'Safe Practice Environment',
+    desc: '12 Learning Pathways with certifications and 52 modules. Practice difficult conversations risk-free before facing real-world situations.',
+    gradient: 'from-violet-500 to-purple-400',
   },
 ];
 
-const industries = [
-  { name: 'Healthcare', icon: '🏥', desc: 'Patient communication & clinical training' },
-  { name: 'Sales', icon: '📈', desc: 'Deal closing & objection handling' },
-  { name: 'Customer Service', icon: '🎧', desc: 'De-escalation & satisfaction' },
-  { name: 'Hospitality', icon: '🏨', desc: 'Guest experience & service excellence' },
-  { name: 'Real Estate', icon: '🏠', desc: 'Client negotiations & showings' },
-  { name: 'Finance', icon: '💰', desc: 'Advisory & compliance conversations' },
-  { name: 'Legal', icon: '⚖️', desc: 'Client consultations & depositions' },
-  { name: 'Education', icon: '🎓', desc: 'Student engagement & parent meetings' },
-  { name: 'HR & Management', icon: '👥', desc: 'Difficult conversations & reviews' },
-  { name: 'Tech Support', icon: '💻', desc: 'Troubleshooting & user guidance' },
-  { name: 'Trade Skills', icon: '🔧', desc: 'Safety protocols & client interactions' },
-  { name: 'Coaching', icon: '🎯', desc: 'Professional development & mentoring' },
+const useCases = [
+  {
+    icon: '💼',
+    title: 'Sales',
+    desc: 'Objection handling, discovery calls, and high-pressure deal closing with AI prospects.',
+    color: 'from-blue-500/20 to-blue-600/5',
+    border: 'border-blue-500/20',
+    iconBg: 'bg-blue-500/10',
+  },
+  {
+    icon: '🏥',
+    title: 'Healthcare',
+    desc: 'Patient communication, clinical empathy, and bedside manner training with AI patients.',
+    color: 'from-emerald-500/20 to-emerald-600/5',
+    border: 'border-emerald-500/20',
+    iconBg: 'bg-emerald-500/10',
+  },
+  {
+    icon: '🎧',
+    title: 'Customer Service',
+    desc: 'De-escalation, empathy building, and first-call resolution with difficult AI customers.',
+    color: 'from-purple-500/20 to-purple-600/5',
+    border: 'border-purple-500/20',
+    iconBg: 'bg-purple-500/10',
+  },
+  {
+    icon: '🎓',
+    title: 'Education',
+    desc: 'Student counseling, parent conferences, and classroom management simulations.',
+    color: 'from-amber-500/20 to-amber-600/5',
+    border: 'border-amber-500/20',
+    iconBg: 'bg-amber-500/10',
+  },
+  {
+    icon: '👥',
+    title: 'HR & Management',
+    desc: 'Performance reviews, conflict resolution, and difficult employee conversations.',
+    color: 'from-pink-500/20 to-pink-600/5',
+    border: 'border-pink-500/20',
+    iconBg: 'bg-pink-500/10',
+  },
+  {
+    icon: '⚖️',
+    title: 'Professional Services',
+    desc: 'Legal consultations, financial advisory, real estate negotiations, and client intake.',
+    color: 'from-cyan-500/20 to-cyan-600/5',
+    border: 'border-cyan-500/20',
+    iconBg: 'bg-cyan-500/10',
+  },
+];
+
+const howItWorks = [
+  {
+    step: '01',
+    title: 'Choose Your Scenario',
+    desc: 'Browse 380+ AI agents across 12 industry categories. Select a persona, difficulty level, and conversation type.',
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+      </svg>
+    ),
+  },
+  {
+    step: '02',
+    title: 'Practice with AI',
+    desc: 'Engage in realistic conversations via video avatars or audio. The AI stays 100% in character and adapts to your responses.',
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+      </svg>
+    ),
+  },
+  {
+    step: '03',
+    title: 'Review & Improve',
+    desc: 'Get detailed scoring across 5 dimensions, read session transcripts, download PDF reports, and track progress over time.',
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+      </svg>
+    ),
+  },
+];
+
+const pricing = [
+  {
+    name: 'Starter',
+    price: '$49',
+    period: '/user/mo',
+    desc: 'Perfect for individuals and small teams getting started with AI training.',
+    cta: 'Start Free Trial',
+    popular: false,
+    features: [
+      'Up to 5 users',
+      'Audio mode (ElevenLabs)',
+      'All 12 industry categories',
+      'Basic scoring & feedback',
+      'Session transcripts',
+      'Email support',
+    ],
+  },
+  {
+    name: 'Professional',
+    price: '$99',
+    period: '/user/mo',
+    desc: 'For growing teams that need video avatars and advanced analytics.',
+    cta: 'Start Free Trial',
+    popular: true,
+    features: [
+      'Up to 50 users',
+      'Video mode (Anam AI avatars)',
+      'Audio mode included',
+      'All 380 AI agents',
+      'Advanced analytics dashboard',
+      'Team management & roles',
+      'PDF reports & transcripts',
+      'Priority support',
+      'Custom scenarios',
+      '12 Learning Pathways',
+    ],
+  },
+  {
+    name: 'Enterprise',
+    price: 'Custom',
+    period: '',
+    desc: 'Unlimited training for large organizations with custom needs.',
+    cta: 'Contact Sales',
+    popular: false,
+    features: [
+      'Unlimited users',
+      'Everything in Professional',
+      'Custom AI personas',
+      'SSO & SAML',
+      'API access',
+      'Dedicated success manager',
+      'SLA guarantee',
+      'Multi-tenant isolation (RLS)',
+      'On-premise option',
+      'Custom integrations',
+    ],
+  },
 ];
 
 const testimonials = [
   {
-    quote: "TrainerSim completely transformed our sales onboarding. New reps are closing deals 35% faster than before. The AI simulations feel incredibly real.",
-    name: "Sarah Chen",
-    role: "VP of Sales",
-    company: "Meridian Tech Solutions",
+    quote: 'TrainerSim completely transformed our sales onboarding. New reps are hitting quota 40% faster. The AI agents feel remarkably real — our team actually enjoys training now.',
+    name: 'Sarah Chen',
+    role: 'VP of Sales, Meridian Tech',
+    initials: 'SC',
+    gradient: 'from-blue-500 to-cyan-400',
   },
   {
-    quote: "We reduced our training costs by 60% while improving quality scores across the board. The real-time feedback is a game-changer for our support team.",
-    name: "James Rodriguez",
-    role: "Director of Learning & Development",
-    company: "Pacific Health Group",
+    quote: 'We replaced expensive role-play workshops with TrainerSim. Patient satisfaction scores improved by 35% within 3 months. The scoring system gives actionable, specific feedback.',
+    name: 'Dr. Maria Lopez',
+    role: 'Director of Medical Education, Pacific Health',
+    initials: 'ML',
+    gradient: 'from-purple-500 to-pink-400',
   },
   {
-    quote: "Our customer satisfaction scores jumped 28% after implementing TrainerSim. The ability to practice difficult conversations safely makes all the difference.",
-    name: "Emily Watson",
-    role: "Chief People Officer",
-    company: "Horizon Financial Services",
-  },
-  {
-    quote: "The analytics dashboard gives us unprecedented insight into team readiness. We can identify and address skill gaps before they become problems.",
-    name: "Michael Park",
-    role: "Training Manager",
-    company: "Atlas Hospitality Group",
+    quote: 'Our customer service team went from 60% to 92% first-call resolution. The safe practice environment lets agents build confidence before handling real escalations.',
+    name: 'James Walker',
+    role: 'Head of CX, NovaCorp',
+    initials: 'JW',
+    gradient: 'from-emerald-500 to-teal-400',
   },
 ];
 
-const stats = [
-  { value: '10,000+', label: 'Training Sessions Completed' },
-  { value: '95%', label: 'Satisfaction Rate' },
-  { value: '500+', label: 'Organizations Trust Us' },
-  { value: '60%', label: 'Average Cost Reduction' },
-];
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.5 },
-};
-
-export default function HomePage() {
+/* ─── PAGE ─── */
+export default function Home() {
   return (
-    <>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        {/* Background effects */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-coral-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-coral-500/20 to-transparent" />
-        </div>
+    <div className="bg-dark-900 min-h-screen overflow-x-hidden">
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-          <div className="text-center max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="inline-block bg-coral-500/10 text-coral-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-6 border border-coral-500/20">
-                🚀 AI-Powered Training Platform
-              </span>
-            </motion.div>
-            
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
-            >
-              Master High-Stakes{' '}
-              <span className="gradient-text">Conversations</span>{' '}
-              with AI
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed"
-            >
-              Practice critical conversations with AI-powered video, audio, and text simulations. 
-              Build confidence, sharpen skills, and drive measurable outcomes — without the risk of real-world mistakes.
-            </motion.p>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
-            >
-              <a
-                href="https://app.trainersim.com/auth"
-                className="bg-coral-500 hover:bg-coral-600 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all hover:shadow-xl hover:shadow-coral-500/25 inline-flex items-center justify-center gap-2"
-              >
-                Start Free Trial
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </a>
-              <a
-                href="#demo"
-                className="border border-gray-600 hover:border-gray-400 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all hover:bg-white/5 inline-flex items-center justify-center gap-2"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
-                  <polygon points="10,8 16,12 10,16" fill="currentColor"/>
-                </svg>
-                Watch Demo
-              </a>
-            </motion.div>
+      {/* ═══════════════════════════════
+                    HERO
+         ═══════════════════════════════ */}
+      <section className="relative pt-24 pb-16 sm:pt-32 sm:pb-24 lg:pt-40 lg:pb-32">
+        {/* Backgrounds */}
+        <div className="absolute inset-0 bg-dark-900" />
+        <div className="absolute inset-0 bg-grid" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-blue-500/8 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-20 right-1/4 w-[400px] h-[400px] bg-purple-500/6 rounded-full blur-[100px] pointer-events-none" />
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-sm text-gray-500"
-            >
-              14-day free trial · No credit card required · Cancel anytime
-            </motion.p>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div initial="hidden" animate="visible" variants={stagger}>
+              {/* Badge */}
+              <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8">
+                <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+                <span className="text-xs sm:text-sm font-medium text-blue-300">380 AI Agents · 12 Industries · Video & Audio</span>
+              </motion.div>
+
+              {/* Headline */}
+              <motion.h1 variants={fadeUp} custom={1} className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] tracking-tight text-white">
+                Master Every{' '}
+                <span className="gradient-text">Conversation</span>
+                <br className="hidden sm:block" />
+                {' '}Before It Happens
+              </motion.h1>
+
+              {/* Subheadline */}
+              <motion.p variants={fadeUp} custom={2} className="mt-6 text-lg sm:text-xl text-dark-200 max-w-2xl mx-auto leading-relaxed">
+                AI-powered training simulations that let your team practice high-stakes conversations with realistic AI personas. 
+                Real-time scoring. Measurable improvement. Zero risk.
+              </motion.p>
+
+              {/* CTAs */}
+              <motion.div variants={fadeUp} custom={3} className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href={APP_URL}
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold text-base hover:from-blue-400 hover:to-purple-500 transition-all shadow-xl shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5"
+                >
+                  Start Training Free
+                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                </a>
+                <a
+                  href="#how-it-works"
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-white/10 text-white font-semibold text-base hover:bg-white/5 transition-all hover:-translate-y-0.5"
+                >
+                  <svg className="mr-2 w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+                  See How It Works
+                </a>
+              </motion.div>
+
+              {/* Trust signals */}
+              <motion.div variants={fadeUp} custom={4} className="mt-8 flex items-center justify-center gap-6 text-sm text-dark-300">
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                  No credit card required
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                  14-day free trial
+                </span>
+                <span className="hidden sm:flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                  Setup in minutes
+                </span>
+              </motion.div>
+            </motion.div>
           </div>
 
-          {/* Hero Image / Mock UI */}
+          {/* Hero Visual - App Preview */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="mt-16 lg:mt-24 relative"
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="mt-16 max-w-5xl mx-auto"
           >
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-navy-800/50 backdrop-blur-sm shadow-2xl shadow-coral-500/5">
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10">
+            <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-dark-800 shadow-2xl shadow-blue-500/10">
+              {/* Browser chrome */}
+              <div className="h-10 sm:h-12 bg-dark-800 border-b border-white/5 flex items-center px-4 gap-2">
                 <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-red-500/70" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/70" />
                 </div>
-                <span className="text-gray-500 text-xs ml-2">app.trainersim.com</span>
+                <div className="ml-4 flex-1 max-w-md">
+                  <div className="h-6 rounded-md bg-dark-700/50 flex items-center px-3">
+                    <span className="text-[10px] text-dark-400">trainer-sim.vercel.app</span>
+                  </div>
+                </div>
               </div>
-              <div className="p-6 md:p-10">
-                <div className="grid md:grid-cols-3 gap-6">
-                  {/* Sim Video Area */}
-                  <div className="md:col-span-2 bg-navy-900 rounded-xl p-6 border border-white/5">
-                    <div className="aspect-video bg-gradient-to-br from-navy-800 to-navy-950 rounded-lg flex items-center justify-center mb-4">
-                      <div className="text-center">
-                        <div className="w-20 h-20 mx-auto bg-coral-500/20 rounded-full flex items-center justify-center mb-3">
-                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <polygon points="10,8 16,12 10,16" fill="#EF5E33"/>
-                          </svg>
-                        </div>
-                        <p className="text-gray-400 text-sm">AI Avatar Simulation</p>
-                        <p className="text-gray-600 text-xs mt-1">Healthcare Patient Intake</p>
+
+              {/* App preview content */}
+              <div className="p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-dark-800 to-dark-900">
+                <div className="grid lg:grid-cols-3 gap-4 sm:gap-6">
+                  {/* Left: Conversation */}
+                  <div className="lg:col-span-2 rounded-xl bg-dark-900/80 border border-white/5 p-4 sm:p-5">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-sm font-bold">AI</div>
+                      <div>
+                        <p className="text-sm font-semibold text-white">Dr. Sarah Mitchell</p>
+                        <p className="text-xs text-dark-400">Healthcare · Patient Consultation</p>
+                      </div>
+                      <div className="ml-auto flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                        <span className="text-xs text-emerald-400">Live</span>
                       </div>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-coral-500 rounded-full flex items-center justify-center text-white text-xs font-bold">AI</div>
-                        <div>
-                          <p className="text-white text-sm font-medium">Dr. Sarah Williams</p>
-                          <p className="text-gray-500 text-xs">Patient intake scenario</p>
+
+                    <div className="space-y-3">
+                      <div className="flex gap-3">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">AI</div>
+                        <div className="bg-dark-700/60 rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[80%]">
+                          <p className="text-sm text-dark-100">&ldquo;Good morning. I understand you&apos;re here about the test results. How are you feeling today?&rdquo;</p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <div className="px-3 py-1 bg-green-500/10 text-green-400 text-xs rounded-full">Live</div>
-                        <div className="px-3 py-1 bg-navy-700 text-gray-400 text-xs rounded-full">04:23</div>
+                      <div className="flex gap-3 justify-end">
+                        <div className="bg-blue-500/15 rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-[80%]">
+                          <p className="text-sm text-dark-100">&ldquo;I&apos;m a bit nervous honestly. Can you walk me through what the results mean?&rdquo;</p>
+                        </div>
+                        <div className="w-8 h-8 rounded-full bg-dark-500 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">You</div>
+                      </div>
+                      <div className="flex gap-3">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">AI</div>
+                        <div className="bg-dark-700/60 rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[80%]">
+                          <p className="text-sm text-dark-100">&ldquo;Of course. I appreciate you being open about that. Let me explain everything clearly...&rdquo;</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  {/* Score Panel */}
-                  <div className="bg-navy-900 rounded-xl p-6 border border-white/5">
-                    <h4 className="text-white font-semibold text-sm mb-4">Performance Score</h4>
-                    <div className="flex items-center justify-center mb-6">
-                      <div className="relative w-28 h-28">
-                        <svg className="w-28 h-28 -rotate-90" viewBox="0 0 100 100">
-                          <circle cx="50" cy="50" r="40" fill="none" stroke="#222a46" strokeWidth="8"/>
-                          <circle cx="50" cy="50" r="40" fill="none" stroke="#EF5E33" strokeWidth="8" strokeDasharray="226" strokeDashoffset="34" strokeLinecap="round"/>
-                        </svg>
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="text-2xl font-bold text-white">85</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="space-y-3">
+
+                  {/* Right: Scoring */}
+                  <div className="rounded-xl bg-dark-900/80 border border-white/5 p-4 sm:p-5">
+                    <h4 className="text-sm font-semibold text-white mb-4">Live Performance</h4>
+                    <div className="space-y-4">
                       {[
-                        { label: 'Empathy', value: 92, color: 'bg-green-500' },
-                        { label: 'Clarity', value: 88, color: 'bg-blue-500' },
-                        { label: 'Technique', value: 78, color: 'bg-coral-500' },
-                        { label: 'Professionalism', value: 82, color: 'bg-purple-500' },
-                      ].map((metric) => (
-                        <div key={metric.label}>
-                          <div className="flex justify-between text-xs mb-1">
-                            <span className="text-gray-400">{metric.label}</span>
-                            <span className="text-white">{metric.value}%</span>
+                        { label: 'Communication', value: 92, color: 'bg-blue-500' },
+                        { label: 'Knowledge', value: 88, color: 'bg-purple-500' },
+                        { label: 'Confidence', value: 85, color: 'bg-emerald-500' },
+                        { label: 'Problem Solving', value: 90, color: 'bg-amber-500' },
+                        { label: 'Professionalism', value: 94, color: 'bg-cyan-500' },
+                      ].map((m) => (
+                        <div key={m.label}>
+                          <div className="flex justify-between text-xs mb-1.5">
+                            <span className="text-dark-300">{m.label}</span>
+                            <span className="text-white font-medium">{m.value}%</span>
                           </div>
-                          <div className="h-1.5 bg-navy-700 rounded-full overflow-hidden">
-                            <div className={`h-full ${metric.color} rounded-full`} style={{ width: `${metric.value}%` }} />
+                          <div className="w-full h-2 rounded-full bg-dark-700">
+                            <div className={`h-full rounded-full ${m.color} transition-all duration-1000`} style={{ width: `${m.value}%` }} />
                           </div>
                         </div>
                       ))}
+                    </div>
+                    <div className="mt-5 pt-4 border-t border-white/5">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-dark-300">Overall Score</span>
+                        <span className="text-2xl font-bold gradient-text">90</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            {/* Glow effect below the card */}
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-8 bg-coral-500/20 blur-2xl rounded-full" />
           </motion.div>
         </div>
       </section>
 
-      {/* Stats Bar */}
-      <section className="relative py-16 border-y border-white/5">
+      {/* ═══════════════════════════════
+                  STATS BAR
+         ═══════════════════════════════ */}
+      <section className="py-12 sm:py-16 border-y border-white/5 bg-dark-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, i) => (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            variants={stagger}
+            className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
+          >
+            {stats.map((s, i) => (
               <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                key={s.label}
+                variants={fadeUp}
+                custom={i}
                 className="text-center"
               >
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.value}</div>
-                <div className="text-gray-400 text-sm">{stat.label}</div>
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-extrabold gradient-text">{s.value}</p>
+                <p className="mt-2 text-sm sm:text-base text-dark-300">{s.label}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-24 lg:py-32">
+      {/* ═══════════════════════════════
+                  FEATURES
+         ═══════════════════════════════ */}
+      <section id="features" className="py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            badge="Features"
-            title="Everything You Need to Build World-Class Teams"
-            subtitle="TrainerSim combines AI, immersive simulations, and data-driven insights to deliver training that actually works."
-          />
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            variants={stagger}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <motion.p variants={fadeUp} className="text-sm font-semibold text-blue-400 uppercase tracking-widest mb-3">Features</motion.p>
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+              Everything You Need to{' '}
+              <span className="gradient-text">Transform Training</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} custom={2} className="mt-5 text-lg text-dark-300 max-w-2xl mx-auto">
+              A complete AI training platform with realistic simulations, intelligent scoring, and enterprise-grade team management.
+            </motion.p>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {features.map((feature, i) => (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            variants={stagger}
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
+          >
+            {features.map((f, i) => (
               <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group p-6 lg:p-8 rounded-2xl bg-navy-800/50 border border-white/5 hover:border-coral-500/30 transition-all hover:bg-navy-800"
+                key={f.title}
+                variants={fadeUp}
+                custom={i}
+                className="group relative p-6 sm:p-7 rounded-2xl bg-dark-800/50 border border-white/5 hover:border-white/10 transition-all duration-300 hover:bg-dark-800/80"
               >
-                <div className="w-12 h-12 bg-coral-500/10 rounded-xl flex items-center justify-center text-coral-500 mb-5 group-hover:bg-coral-500/20 transition-colors">
-                  {feature.icon}
+                {/* Icon */}
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${f.gradient} flex items-center justify-center text-white mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  {f.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-3">{feature.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
+                <h3 className="text-lg font-semibold text-white mb-3">{f.title}</h3>
+                <p className="text-sm text-dark-300 leading-relaxed">{f.desc}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-24 lg:py-32 bg-navy-950/50">
+      {/* ═══════════════════════════════
+                 USE CASES
+         ═══════════════════════════════ */}
+      <section id="use-cases" className="py-20 sm:py-28 bg-dark-800/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            badge="How It Works"
-            title="Get Started in Minutes"
-            subtitle="No complex setup. No technical skills required. Just sign up and start training."
-          />
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            variants={stagger}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <motion.p variants={fadeUp} className="text-sm font-semibold text-purple-400 uppercase tracking-widest mb-3">Use Cases</motion.p>
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+              Built for <span className="gradient-text">Every Industry</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} custom={2} className="mt-5 text-lg text-dark-300 max-w-2xl mx-auto">
+              From healthcare to finance, TrainerSim adapts to the conversations that matter most in your field.
+            </motion.p>
+          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
-            {[
-              {
-                step: '01',
-                title: 'Choose Your Scenario',
-                description: 'Pick from 100+ pre-built scenarios across 12 industries, or create your own custom training scenario in minutes.',
-              },
-              {
-                step: '02',
-                title: 'Practice with AI',
-                description: 'Engage in realistic conversations with AI avatars via video, audio, or text. The AI adapts to your responses in real time.',
-              },
-              {
-                step: '03',
-                title: 'Get Instant Feedback',
-                description: 'Receive detailed performance scores, personalized coaching tips, and actionable insights to improve with every session.',
-              },
-            ].map((item, i) => (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            variants={stagger}
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
+          >
+            {useCases.map((uc, i) => (
               <motion.div
-                key={item.step}
-                {...fadeInUp}
-                transition={{ duration: 0.5, delay: i * 0.15 }}
-                className="relative text-center"
+                key={uc.title}
+                variants={fadeUp}
+                custom={i}
+                className={`group relative p-6 sm:p-7 rounded-2xl bg-gradient-to-br ${uc.color} border ${uc.border} hover:border-opacity-60 transition-all duration-300`}
               >
-                <div className="text-6xl font-bold text-coral-500/10 mb-4">{item.step}</div>
-                <h3 className="text-xl font-semibold text-white mb-3">{item.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{item.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Industry Use Cases */}
-      <section className="py-24 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            badge="Use Cases"
-            title="Built for Every Industry"
-            subtitle="From healthcare to hospitality, TrainerSim adapts to your industry's unique challenges and conversation scenarios."
-          />
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
-            {industries.map((industry, i) => (
-              <motion.a
-                key={industry.name}
-                href="/use-cases/"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.05 }}
-                className="p-5 rounded-xl bg-navy-800/50 border border-white/5 hover:border-coral-500/30 transition-all hover:bg-navy-800 group cursor-pointer"
-              >
-                <div className="text-3xl mb-3">{industry.icon}</div>
-                <h4 className="text-white font-semibold text-sm mb-1 group-hover:text-coral-400 transition-colors">{industry.name}</h4>
-                <p className="text-gray-500 text-xs">{industry.desc}</p>
-              </motion.a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-24 lg:py-32 bg-navy-950/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            badge="Testimonials"
-            title="Trusted by Industry Leaders"
-            subtitle="See why hundreds of organizations choose TrainerSim to develop their teams."
-          />
-
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            {testimonials.map((testimonial, i) => (
-              <motion.div
-                key={testimonial.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="p-6 lg:p-8 rounded-2xl bg-navy-800/50 border border-white/5"
-              >
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, j) => (
-                    <svg key={j} width="16" height="16" viewBox="0 0 24 24" fill="#EF5E33" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-                    </svg>
-                  ))}
+                <div className={`w-14 h-14 rounded-xl ${uc.iconBg} flex items-center justify-center text-3xl mb-5`}>
+                  {uc.icon}
                 </div>
-                <p className="text-gray-300 leading-relaxed mb-6 italic">&ldquo;{testimonial.quote}&rdquo;</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-coral-500 to-coral-700 rounded-full flex items-center justify-center text-white text-sm font-bold">
-                    {testimonial.name.split(' ').map(n => n[0]).join('')}
+                <h3 className="text-lg font-semibold text-white mb-3">{uc.title}</h3>
+                <p className="text-sm text-dark-200 leading-relaxed">{uc.desc}</p>
+                <a
+                  href={APP_URL}
+                  className="inline-flex items-center gap-1 mt-4 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
+                >
+                  Try {uc.title} scenarios
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                </a>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════
+               HOW IT WORKS
+         ═══════════════════════════════ */}
+      <section id="how-it-works" className="py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            variants={stagger}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <motion.p variants={fadeUp} className="text-sm font-semibold text-emerald-400 uppercase tracking-widest mb-3">How It Works</motion.p>
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+              Three Steps to{' '}
+              <span className="gradient-text">Better Performance</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} custom={2} className="mt-5 text-lg text-dark-300 max-w-2xl mx-auto">
+              Get started in minutes. No setup, no downloads, no complexity.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            variants={stagger}
+            className="grid sm:grid-cols-3 gap-6 sm:gap-8 relative"
+          >
+            {/* Connection line */}
+            <div className="hidden sm:block absolute top-24 left-[20%] right-[20%] h-px bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-emerald-500/30" />
+
+            {howItWorks.map((step, i) => (
+              <motion.div key={step.step} variants={fadeUp} custom={i} className="text-center relative">
+                <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 mb-6 relative">
+                  <div className="text-blue-400">
+                    {step.icon}
                   </div>
-                  <div>
-                    <p className="text-white font-semibold text-sm">{testimonial.name}</p>
-                    <p className="text-gray-500 text-xs">{testimonial.role}, {testimonial.company}</p>
+                  <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold shadow-lg">
+                    {step.step}
                   </div>
                 </div>
+                <h3 className="text-xl font-semibold text-white mb-3">{step.title}</h3>
+                <p className="text-sm sm:text-base text-dark-300 leading-relaxed max-w-xs mx-auto">{step.desc}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="text-center mt-12"
+          >
+            <a
+              href={APP_URL}
+              className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold text-base hover:from-blue-400 hover:to-purple-500 transition-all shadow-xl shadow-blue-500/25"
+            >
+              Try Your First Simulation
+              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+            </a>
+          </motion.div>
         </div>
       </section>
 
-      {/* Pricing Preview */}
-      <section className="py-24 lg:py-32">
+      {/* ═══════════════════════════════
+                  PRICING
+         ═══════════════════════════════ */}
+      <section id="pricing" className="py-20 sm:py-28 bg-dark-800/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            badge="Pricing"
-            title="Simple, Transparent Pricing"
-            subtitle="Start free. Scale as you grow. No hidden fees."
-          />
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            variants={stagger}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <motion.p variants={fadeUp} className="text-sm font-semibold text-blue-400 uppercase tracking-widest mb-3">Pricing</motion.p>
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+              Simple, Transparent{' '}
+              <span className="gradient-text">Pricing</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} custom={2} className="mt-5 text-lg text-dark-300 max-w-2xl mx-auto">
+              Start free. Scale as you grow. No hidden fees, no surprises.
+            </motion.p>
+          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
-            {[
-              {
-                name: 'Starter',
-                price: '$49',
-                period: '/month',
-                description: 'Perfect for individuals and small teams getting started.',
-                features: ['100 training credits/mo', '5 scenarios', 'Basic analytics', 'Email support', 'Text & audio modes'],
-                cta: 'Start Free Trial',
-                popular: false,
-              },
-              {
-                name: 'Professional',
-                price: '$99',
-                period: '/month',
-                description: 'For growing teams that need advanced training capabilities.',
-                features: ['500 training credits/mo', 'All scenarios', 'Advanced analytics', 'Team management', 'Priority support', 'Video simulations', 'Custom branding'],
-                cta: 'Start Free Trial',
-                popular: true,
-              },
-              {
-                name: 'Enterprise',
-                price: 'Custom',
-                period: '',
-                description: 'For organizations with custom needs and scale requirements.',
-                features: ['Unlimited credits', 'Custom scenarios', 'SSO & SAML', 'API access', 'Dedicated success manager', 'SLA guarantee', 'On-premise option'],
-                cta: 'Contact Sales',
-                popular: false,
-              },
-            ].map((plan, i) => (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 max-w-5xl mx-auto"
+          >
+            {pricing.map((plan, i) => (
               <motion.div
                 key={plan.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.15 }}
-                className={`relative p-6 lg:p-8 rounded-2xl border ${
+                variants={fadeUp}
+                custom={i}
+                className={`relative rounded-2xl p-6 sm:p-8 flex flex-col ${
                   plan.popular
-                    ? 'bg-navy-800 border-coral-500/50 shadow-xl shadow-coral-500/10'
-                    : 'bg-navy-800/50 border-white/5'
+                    ? 'bg-gradient-to-b from-blue-500/10 via-purple-500/5 to-dark-800/80 border-2 border-blue-500/30 shadow-xl shadow-blue-500/10 scale-[1.02]'
+                    : 'bg-dark-800/50 border border-white/5'
                 }`}
               >
                 {plan.popular && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-coral-500 text-white px-4 py-1 rounded-full text-xs font-bold">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-5 py-1.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white text-xs font-semibold shadow-lg">
                     Most Popular
-                  </span>
+                  </div>
                 )}
-                <h3 className="text-lg font-semibold text-white mb-2">{plan.name}</h3>
-                <div className="flex items-baseline gap-1 mb-3">
-                  <span className="text-4xl font-bold text-white">{plan.price}</span>
-                  <span className="text-gray-400 text-sm">{plan.period}</span>
+
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-white">{plan.name}</h3>
+                  <div className="mt-4 flex items-baseline gap-1">
+                    <span className="text-4xl sm:text-5xl font-extrabold text-white">{plan.price}</span>
+                    {plan.period && <span className="text-base text-dark-400">{plan.period}</span>}
+                  </div>
+                  <p className="mt-3 text-sm text-dark-300 leading-relaxed">{plan.desc}</p>
                 </div>
-                <p className="text-gray-400 text-sm mb-6">{plan.description}</p>
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-sm text-gray-300">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-coral-500 flex-shrink-0">
-                        <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+
+                <ul className="space-y-3 mb-8 flex-1">
+                  {plan.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-dark-200">
+                      <svg className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      {feature}
+                      {f}
                     </li>
                   ))}
                 </ul>
+
                 <a
-                  href={plan.name === 'Enterprise' ? '/contact/' : 'https://app.trainersim.com/auth'}
-                  className={`block w-full text-center py-3 rounded-xl text-sm font-semibold transition-all ${
+                  href={APP_URL}
+                  className={`block w-full text-center px-5 py-3.5 rounded-xl font-semibold text-base transition-all ${
                     plan.popular
-                      ? 'bg-coral-500 hover:bg-coral-600 text-white hover:shadow-lg hover:shadow-coral-500/25'
-                      : 'bg-navy-700 hover:bg-navy-600 text-white'
+                      ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-400 hover:to-purple-500 shadow-lg shadow-blue-500/25'
+                      : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'
                   }`}
                 >
                   {plan.cta}
                 </a>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <CTABanner />
-    </>
+      {/* ═══════════════════════════════
+                TESTIMONIALS
+         ═══════════════════════════════ */}
+      <section className="py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            variants={stagger}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <motion.p variants={fadeUp} className="text-sm font-semibold text-purple-400 uppercase tracking-widest mb-3">Testimonials</motion.p>
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+              Loved by{' '}
+              <span className="gradient-text">Training Leaders</span>
+            </motion.h2>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            variants={stagger}
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
+          >
+            {testimonials.map((t, i) => (
+              <motion.div
+                key={t.name}
+                variants={fadeUp}
+                custom={i}
+                className="p-6 sm:p-7 rounded-2xl bg-dark-800/50 border border-white/5 hover:border-white/10 transition-all"
+              >
+                {/* Stars */}
+                <div className="flex gap-1 mb-5">
+                  {[...Array(5)].map((_, j) => (
+                    <svg key={j} className="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-sm sm:text-base text-dark-200 leading-relaxed mb-6 italic">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className={`w-11 h-11 rounded-full bg-gradient-to-br ${t.gradient} flex items-center justify-center text-white text-sm font-bold`}>
+                    {t.initials}
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-white">{t.name}</p>
+                    <p className="text-xs text-dark-400">{t.role}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════
+                 CTA BANNER
+         ═══════════════════════════════ */}
+      <section className="py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative rounded-3xl overflow-hidden p-8 sm:p-12 lg:p-16 text-center"
+          >
+            {/* Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 animate-gradient" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent)]" />
+            <div className="absolute inset-0 bg-grid opacity-20" />
+
+            <div className="relative">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+                Ready to Transform Your Training?
+              </h2>
+              <p className="mt-5 text-lg text-white/80 max-w-xl mx-auto">
+                Join 500+ organizations using TrainerSim to build confident, skilled teams. Start your free trial today.
+              </p>
+              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href={APP_URL}
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white text-blue-600 font-semibold text-base hover:bg-white/90 transition-all shadow-xl hover:-translate-y-0.5"
+                >
+                  Get Started Free
+                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                </a>
+                <a
+                  href="#"
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl border-2 border-white/30 text-white font-semibold text-base hover:bg-white/10 transition-all hover:-translate-y-0.5"
+                >
+                  Talk to Sales
+                </a>
+              </div>
+              <p className="mt-6 text-sm text-white/60">
+                No credit card required · 14-day free trial · Cancel anytime
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 }
