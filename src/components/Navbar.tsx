@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const APP_URL = 'https://app.trainersim.com/auth';
@@ -35,20 +36,15 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-18 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-shadow">
-              {/* Brain/Target icon */}
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <circle cx="12" cy="12" r="6" />
-                <circle cx="12" cy="12" r="2" />
-                <line x1="12" y1="2" x2="12" y2="6" />
-                <line x1="12" y1="18" x2="12" y2="22" />
-                <line x1="2" y1="12" x2="6" y2="12" />
-                <line x1="18" y1="12" x2="22" y2="12" />
-              </svg>
-            </div>
+            <Image
+              src="/trainersim-logo.png"
+              alt="TrainerSim"
+              width={40}
+              height={40}
+              className="h-9 w-9 object-contain"
+            />
             <span className="text-xl font-bold text-white">
-              Trainer<span className="gradient-text">Sim</span>
+              Trainer<span className="text-brand-orange">Sim</span>
             </span>
           </Link>
 
@@ -61,7 +57,7 @@ export default function Navbar() {
                 className="text-sm text-dark-200 hover:text-white transition-colors relative group"
               >
                 {l.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-orange group-hover:w-full transition-all duration-300" />
               </a>
             ))}
           </div>
@@ -76,7 +72,7 @@ export default function Navbar() {
             </a>
             <a
               href={APP_URL}
-              className="px-5 py-2.5 text-sm font-semibold rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-400 hover:to-purple-500 transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40"
+              className="px-5 py-2.5 text-sm font-semibold rounded-xl bg-brand-orange text-white hover:bg-brand-orange-light transition-all shadow-lg shadow-brand-orange/25 hover:shadow-brand-orange/40"
             >
               Get Started Free
             </a>
@@ -138,7 +134,7 @@ export default function Navbar() {
                 <a
                   href={APP_URL}
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full text-center px-4 py-3 text-base font-semibold rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white"
+                  className="block w-full text-center px-4 py-3 text-base font-semibold rounded-xl bg-brand-orange text-white"
                 >
                   Get Started Free
                 </a>

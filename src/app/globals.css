@@ -2,6 +2,15 @@
 @import "tailwindcss";
 
 @theme {
+  /* ─── Brand palette ─── */
+  --color-brand-blue: #233C6F;
+  --color-brand-blue-light: #2E4F8F;
+  --color-brand-blue-dark: #1A2D54;
+  --color-brand-orange: #EF5E33;
+  --color-brand-orange-light: #F47B56;
+  --color-brand-orange-dark: #D94E26;
+
+  /* ─── Dark palette (navy-tinted) ─── */
   --color-dark-50: #e8eaf0;
   --color-dark-100: #c5c9d6;
   --color-dark-200: #9da3b8;
@@ -12,7 +21,7 @@
   --color-dark-700: #2b3259;
   --color-dark-800: #0f1221;
   --color-dark-900: #0a0d18;
-  --color-dark-950: '#06080e';
+  --color-dark-950: #06080e;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
@@ -39,15 +48,24 @@ body {
   background: #0a0d18;
 }
 ::-webkit-scrollbar-thumb {
-  background: #38416c;
+  background: #233C6F;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #565f83;
+  background: #2E4F8F;
 }
 
+/* ─── Brand gradient text (blue → orange) ─── */
 .gradient-text {
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #a855f7);
+  background: linear-gradient(135deg, #233C6F 0%, #2E4F8F 40%, #EF5E33 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Orange accent gradient text ─── */
+.gradient-text-orange {
+  background: linear-gradient(135deg, #EF5E33, #F47B56);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -62,7 +80,7 @@ body {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, #233C6F, #EF5E33);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -81,8 +99,8 @@ body {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.5); }
+  0%, 100% { box-shadow: 0 0 20px rgba(239, 94, 51, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(239, 94, 51, 0.5); }
 }
 
 @keyframes gradient-shift {
@@ -106,7 +124,7 @@ body {
 
 .bg-grid {
   background-image: 
-    linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(35, 60, 111, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(35, 60, 111, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
 }

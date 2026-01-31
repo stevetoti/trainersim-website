@@ -44,7 +44,7 @@ const features = [
     ),
     title: 'AI Simulations',
     desc: '380 AI agents across 12 categories. Each persona stays 100% in character with realistic responses, emotions, and adaptive conversation flow.',
-    gradient: 'from-blue-500 to-cyan-400',
+    gradient: 'from-brand-orange to-amber-400',
   },
   {
     icon: (
@@ -54,7 +54,7 @@ const features = [
     ),
     title: 'Video & Audio Modes',
     desc: 'Premium video avatars powered by Anam AI or cost-effective audio mode with ElevenLabs voices. Choose the experience that fits your budget.',
-    gradient: 'from-purple-500 to-pink-400',
+    gradient: 'from-brand-blue to-brand-blue-light',
   },
   {
     icon: (
@@ -64,7 +64,7 @@ const features = [
     ),
     title: 'Real-Time Scoring',
     desc: 'Weighted scoring across Communication, Knowledge, Confidence, Problem Solving, and Professionalism. Time-based caps ensure genuine practice.',
-    gradient: 'from-emerald-500 to-teal-400',
+    gradient: 'from-brand-orange to-brand-orange-light',
   },
   {
     icon: (
@@ -75,7 +75,7 @@ const features = [
     ),
     title: 'Custom Scenarios',
     desc: 'Build custom training scenarios for your organization. Create AI personas that match your exact customer profiles and conversation types.',
-    gradient: 'from-orange-500 to-amber-400',
+    gradient: 'from-brand-blue-light to-blue-400',
   },
   {
     icon: (
@@ -85,7 +85,7 @@ const features = [
     ),
     title: 'Team Management',
     desc: 'Multi-tenant platform with role-based access. Manager dashboards, team analytics, session transcripts, and PDF reports for every member.',
-    gradient: 'from-blue-500 to-indigo-400',
+    gradient: 'from-brand-orange-dark to-brand-orange',
   },
   {
     icon: (
@@ -95,7 +95,7 @@ const features = [
     ),
     title: 'Safe Practice Environment',
     desc: '12 Learning Pathways with certifications and 52 modules. Practice difficult conversations risk-free before facing real-world situations.',
-    gradient: 'from-violet-500 to-purple-400',
+    gradient: 'from-brand-blue to-brand-orange',
   },
 ];
 
@@ -104,9 +104,9 @@ const useCases = [
     icon: '💼',
     title: 'Sales',
     desc: 'Objection handling, discovery calls, and high-pressure deal closing with AI prospects.',
-    color: 'from-blue-500/20 to-blue-600/5',
-    border: 'border-blue-500/20',
-    iconBg: 'bg-blue-500/10',
+    color: 'from-brand-blue/20 to-brand-blue/5',
+    border: 'border-brand-blue/20',
+    iconBg: 'bg-brand-blue/10',
   },
   {
     icon: '🏥',
@@ -120,9 +120,9 @@ const useCases = [
     icon: '🎧',
     title: 'Customer Service',
     desc: 'De-escalation, empathy building, and first-call resolution with difficult AI customers.',
-    color: 'from-purple-500/20 to-purple-600/5',
-    border: 'border-purple-500/20',
-    iconBg: 'bg-purple-500/10',
+    color: 'from-brand-orange/20 to-brand-orange/5',
+    border: 'border-brand-orange/20',
+    iconBg: 'bg-brand-orange/10',
   },
   {
     icon: '⚖️',
@@ -136,17 +136,17 @@ const useCases = [
     icon: '💰',
     title: 'Finance',
     desc: 'Investment advisory, financial planning, and sensitive money conversations with clients.',
-    color: 'from-green-500/20 to-green-600/5',
-    border: 'border-green-500/20',
-    iconBg: 'bg-green-500/10',
+    color: 'from-brand-blue-light/20 to-brand-blue-light/5',
+    border: 'border-brand-blue-light/20',
+    iconBg: 'bg-brand-blue-light/10',
   },
   {
     icon: '👥',
     title: 'HR',
     desc: 'Performance reviews, conflict resolution, and difficult employee conversations.',
-    color: 'from-pink-500/20 to-pink-600/5',
-    border: 'border-pink-500/20',
-    iconBg: 'bg-pink-500/10',
+    color: 'from-brand-orange-light/20 to-brand-orange-light/5',
+    border: 'border-brand-orange-light/20',
+    iconBg: 'bg-brand-orange-light/10',
   },
 ];
 
@@ -248,21 +248,21 @@ const testimonials = [
     name: 'Sarah Chen',
     role: 'VP of Sales, Meridian Tech',
     initials: 'SC',
-    gradient: 'from-blue-500 to-cyan-400',
+    gradient: 'from-brand-orange to-amber-400',
   },
   {
     quote: 'We replaced expensive role-play workshops with TrainerSim. Patient satisfaction scores improved by 35% within 3 months. The scoring system gives actionable, specific feedback.',
     name: 'Dr. Maria Lopez',
     role: 'Director of Medical Education, Pacific Health',
     initials: 'ML',
-    gradient: 'from-purple-500 to-pink-400',
+    gradient: 'from-brand-blue to-brand-blue-light',
   },
   {
     quote: 'Our customer service team went from 60% to 92% first-call resolution. The safe practice environment lets agents build confidence before handling real escalations.',
     name: 'James Walker',
     role: 'Head of CX, NovaCorp',
     initials: 'JW',
-    gradient: 'from-emerald-500 to-teal-400',
+    gradient: 'from-brand-orange-dark to-brand-orange-light',
   },
 ];
 
@@ -278,8 +278,8 @@ export default function Home() {
         {/* Background elements */}
         <div className="absolute inset-0 bg-dark-900" />
         <div className="absolute inset-0 bg-grid opacity-30" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-blue-500/8 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute top-20 right-1/4 w-[400px] h-[400px] bg-purple-500/6 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-brand-blue/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-20 right-1/4 w-[400px] h-[400px] bg-brand-orange/8 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center">
@@ -288,10 +288,10 @@ export default function Home() {
               <motion.div 
                 variants={fadeUp} 
                 custom={0} 
-                className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8"
+                className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-brand-orange/10 border border-brand-orange/20 mb-8"
               >
-                <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-                <span className="text-sm font-medium text-blue-300">380 AI Agents · 12 Industries · Video & Audio</span>
+                <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
+                <span className="text-sm font-medium text-brand-orange-light">380 AI Agents · 12 Industries · Video & Audio</span>
               </motion.div>
 
               {/* Main headline */}
@@ -324,7 +324,7 @@ export default function Home() {
               >
                 <a
                   href={APP_URL}
-                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold text-base hover:from-blue-400 hover:to-purple-500 transition-all shadow-xl shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5"
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-brand-orange text-white font-semibold text-base hover:bg-brand-orange-light transition-all shadow-xl shadow-brand-orange/25 hover:shadow-brand-orange/40 hover:-translate-y-0.5"
                 >
                   Start Training Free
                   <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
@@ -333,7 +333,7 @@ export default function Home() {
                   href="#how-it-works"
                   className="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-white/10 text-white font-semibold text-base hover:bg-white/5 transition-all hover:-translate-y-0.5"
                 >
-                  <svg className="mr-2 w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+                  <svg className="mr-2 w-5 h-5 text-brand-orange" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" /></svg>
                   See How It Works
                 </a>
               </motion.div>
@@ -345,15 +345,15 @@ export default function Home() {
                 className="flex flex-wrap items-center justify-center gap-6 text-sm text-dark-300"
               >
                 <span className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                  <svg className="w-4 h-4 text-brand-orange" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
                   No credit card required
                 </span>
                 <span className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                  <svg className="w-4 h-4 text-brand-orange" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
                   14-day free trial
                 </span>
                 <span className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                  <svg className="w-4 h-4 text-brand-orange" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
                   Setup in minutes
                 </span>
               </motion.div>
@@ -365,7 +365,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════
                               STATS SECTION
          ═══════════════════════════════════════════════════════ */}
-      <section className="py-12 lg:py-16 border-y border-white/5 bg-dark-800/50">
+      <section className="py-12 lg:py-16 border-y border-brand-orange/10 bg-brand-blue/20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -381,7 +381,7 @@ export default function Home() {
                 custom={i}
                 className="text-center"
               >
-                <p className="text-4xl lg:text-5xl font-bold gradient-text mb-3">{s.value}</p>
+                <p className="text-4xl lg:text-5xl font-bold text-brand-orange mb-3">{s.value}</p>
                 <p className="text-lg leading-relaxed text-dark-300">{s.label}</p>
               </motion.div>
             ))}
@@ -390,7 +390,7 @@ export default function Home() {
       </section>
 
       {/* Section separator */}
-      <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-brand-orange/20 to-transparent" />
 
       {/* ═══════════════════════════════════════════════════════
                             FEATURES SECTION
@@ -404,7 +404,7 @@ export default function Home() {
             variants={stagger}
             className="text-center mb-12"
           >
-            <motion.p variants={fadeUp} className="text-sm font-semibold text-blue-400 uppercase tracking-widest mb-4">Features</motion.p>
+            <motion.p variants={fadeUp} className="text-sm font-semibold text-brand-orange uppercase tracking-widest mb-4">Features</motion.p>
             <motion.h2 variants={fadeUp} custom={1} className="text-4xl lg:text-5xl font-bold text-white mb-6">
               Everything You Need to{' '}
               <span className="gradient-text">Transform Training</span>
@@ -426,7 +426,7 @@ export default function Home() {
                 key={f.title}
                 variants={fadeUp}
                 custom={i}
-                className="group relative p-6 lg:p-8 rounded-2xl bg-dark-800/50 border border-white/5 hover:border-white/10 transition-all duration-300 hover:bg-dark-800/80"
+                className="group relative p-6 lg:p-8 rounded-2xl bg-dark-800/50 border border-white/5 hover:border-brand-orange/20 transition-all duration-300 hover:bg-dark-800/80"
               >
                 {/* Icon */}
                 <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${f.gradient} flex items-center justify-center text-white mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
@@ -441,12 +441,12 @@ export default function Home() {
       </section>
 
       {/* Section separator */}
-      <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-brand-orange/20 to-transparent" />
 
       {/* ═══════════════════════════════════════════════════════
                            USE CASES SECTION
          ═══════════════════════════════════════════════════════ */}
-      <section id="use-cases" className="py-16 lg:py-20 bg-dark-800/30">
+      <section id="use-cases" className="py-16 lg:py-20 bg-brand-blue/15">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -455,7 +455,7 @@ export default function Home() {
             variants={stagger}
             className="text-center mb-12"
           >
-            <motion.p variants={fadeUp} className="text-sm font-semibold text-purple-400 uppercase tracking-widest mb-4">Use Cases</motion.p>
+            <motion.p variants={fadeUp} className="text-sm font-semibold text-brand-orange uppercase tracking-widest mb-4">Use Cases</motion.p>
             <motion.h2 variants={fadeUp} custom={1} className="text-4xl lg:text-5xl font-bold text-white mb-6">
               Built for <span className="gradient-text">Every Industry</span>
             </motion.h2>
@@ -485,7 +485,7 @@ export default function Home() {
                 <p className="text-base leading-relaxed text-dark-200 mb-5">{uc.desc}</p>
                 <a
                   href={APP_URL}
-                  className="inline-flex items-center gap-2 text-base font-medium text-blue-400 hover:text-blue-300 transition-colors"
+                  className="inline-flex items-center gap-2 text-base font-medium text-brand-orange hover:text-brand-orange-light transition-colors"
                 >
                   Try {uc.title} scenarios
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
@@ -497,7 +497,7 @@ export default function Home() {
       </section>
 
       {/* Section separator */}
-      <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-brand-orange/20 to-transparent" />
 
       {/* ═══════════════════════════════════════════════════════
                           HOW IT WORKS SECTION
@@ -511,7 +511,7 @@ export default function Home() {
             variants={stagger}
             className="text-center mb-12"
           >
-            <motion.p variants={fadeUp} className="text-sm font-semibold text-emerald-400 uppercase tracking-widest mb-4">How It Works</motion.p>
+            <motion.p variants={fadeUp} className="text-sm font-semibold text-brand-orange uppercase tracking-widest mb-4">How It Works</motion.p>
             <motion.h2 variants={fadeUp} custom={1} className="text-4xl lg:text-5xl font-bold text-white mb-6">
               Three Steps to{' '}
               <span className="gradient-text">Better Performance</span>
@@ -529,15 +529,15 @@ export default function Home() {
             className="grid lg:grid-cols-3 gap-6 lg:gap-8 relative"
           >
             {/* Connection line for desktop */}
-            <div className="hidden lg:block absolute top-24 left-[16.66%] right-[16.66%] h-px bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-emerald-500/30" />
+            <div className="hidden lg:block absolute top-24 left-[16.66%] right-[16.66%] h-px bg-gradient-to-r from-brand-blue via-brand-orange to-brand-blue" />
 
             {howItWorks.map((step, i) => (
               <motion.div key={step.step} variants={fadeUp} custom={i} className="text-center relative">
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 mb-6 relative">
-                  <div className="text-blue-400">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-blue/20 to-brand-orange/10 border border-brand-orange/20 mb-6 relative">
+                  <div className="text-brand-orange">
                     {step.icon}
                   </div>
-                  <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-sm font-bold shadow-lg">
+                  <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-brand-orange flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-brand-orange/30">
                     {step.step}
                   </div>
                 </div>
@@ -557,7 +557,7 @@ export default function Home() {
           >
             <a
               href={APP_URL}
-              className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold text-base hover:from-blue-400 hover:to-purple-500 transition-all shadow-xl shadow-blue-500/25"
+              className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-brand-orange text-white font-semibold text-base hover:bg-brand-orange-light transition-all shadow-xl shadow-brand-orange/25"
             >
               Try Your First Simulation
               <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
@@ -567,12 +567,12 @@ export default function Home() {
       </section>
 
       {/* Section separator */}
-      <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-brand-orange/20 to-transparent" />
 
       {/* ═══════════════════════════════════════════════════════
                            PRICING SECTION
          ═══════════════════════════════════════════════════════ */}
-      <section id="pricing" className="py-16 lg:py-20 bg-dark-800/30">
+      <section id="pricing" className="py-16 lg:py-20 bg-brand-blue/15">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -581,7 +581,7 @@ export default function Home() {
             variants={stagger}
             className="text-center mb-12"
           >
-            <motion.p variants={fadeUp} className="text-sm font-semibold text-blue-400 uppercase tracking-widest mb-4">Pricing</motion.p>
+            <motion.p variants={fadeUp} className="text-sm font-semibold text-brand-orange uppercase tracking-widest mb-4">Pricing</motion.p>
             <motion.h2 variants={fadeUp} custom={1} className="text-4xl lg:text-5xl font-bold text-white mb-6">
               Simple, Transparent{' '}
               <span className="gradient-text">Pricing</span>
@@ -605,12 +605,12 @@ export default function Home() {
                 custom={i}
                 className={`relative rounded-2xl p-6 lg:p-8 flex flex-col ${
                   plan.popular
-                    ? 'bg-gradient-to-b from-blue-500/10 via-purple-500/5 to-dark-800/80 border-2 border-blue-500/30 shadow-xl shadow-blue-500/10 scale-[1.02]'
+                    ? 'bg-gradient-to-b from-brand-orange/10 via-brand-blue/5 to-dark-800/80 border-2 border-brand-orange/30 shadow-xl shadow-brand-orange/10 scale-[1.02]'
                     : 'bg-dark-800/50 border border-white/5'
                 }`}
               >
                 {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-semibold shadow-lg">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-brand-orange text-white text-sm font-semibold shadow-lg shadow-brand-orange/30">
                     Most Popular
                   </div>
                 )}
@@ -627,7 +627,7 @@ export default function Home() {
                 <ul className="space-y-3 mb-6 flex-1">
                   {plan.features.map((f) => (
                     <li key={f} className="flex items-start gap-3 text-base text-dark-200 leading-relaxed">
-                      <svg className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                       {f}
@@ -639,8 +639,8 @@ export default function Home() {
                   href={APP_URL}
                   className={`block w-full text-center px-6 py-4 rounded-xl font-semibold text-base transition-all ${
                     plan.popular
-                      ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-400 hover:to-purple-500 shadow-lg shadow-blue-500/25'
-                      : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'
+                      ? 'bg-brand-orange text-white hover:bg-brand-orange-light shadow-lg shadow-brand-orange/25'
+                      : 'bg-white/5 text-white hover:bg-white/10 border border-white/10 hover:border-brand-orange/30'
                   }`}
                 >
                   {plan.cta}
@@ -652,7 +652,7 @@ export default function Home() {
       </section>
 
       {/* Section separator */}
-      <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-brand-orange/20 to-transparent" />
 
       {/* ═══════════════════════════════════════════════════════
                          TESTIMONIALS SECTION
@@ -666,7 +666,7 @@ export default function Home() {
             variants={stagger}
             className="text-center mb-12"
           >
-            <motion.p variants={fadeUp} className="text-sm font-semibold text-purple-400 uppercase tracking-widest mb-4">Testimonials</motion.p>
+            <motion.p variants={fadeUp} className="text-sm font-semibold text-brand-orange uppercase tracking-widest mb-4">Testimonials</motion.p>
             <motion.h2 variants={fadeUp} custom={1} className="text-4xl lg:text-5xl font-bold text-white mb-6">
               Loved by{' '}
               <span className="gradient-text">Training Leaders</span>
@@ -685,15 +685,15 @@ export default function Home() {
                 key={t.name}
                 variants={fadeUp}
                 custom={i}
-                className="p-6 lg:p-8 rounded-2xl bg-dark-800/50 border border-white/5 hover:border-white/10 transition-all"
+                className="p-6 lg:p-8 rounded-2xl bg-dark-800/50 border border-white/5 hover:border-brand-orange/20 transition-all"
               >
                 {/* Quote marks */}
-                <div className="text-4xl text-blue-400 mb-4">&ldquo;</div>
+                <div className="text-4xl text-brand-orange mb-4">&ldquo;</div>
                 
                 {/* Stars */}
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, j) => (
-                    <svg key={j} className="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                    <svg key={j} className="w-5 h-5 text-brand-orange" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
@@ -719,7 +719,7 @@ export default function Home() {
       </section>
 
       {/* Section separator */}
-      <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-brand-orange/20 to-transparent" />
 
       {/* ═══════════════════════════════════════════════════════
                            FINAL CTA SECTION
@@ -734,8 +734,8 @@ export default function Home() {
             className="relative rounded-3xl overflow-hidden p-10 lg:p-14 text-center"
           >
             {/* Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 animate-gradient" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent)]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-blue via-brand-blue-dark to-brand-blue animate-gradient" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(239,94,51,0.15),transparent)]" />
             <div className="absolute inset-0 bg-grid opacity-20" />
 
             <div className="relative">
@@ -748,7 +748,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <a
                   href={APP_URL}
-                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white text-blue-600 font-semibold text-base hover:bg-white/90 transition-all shadow-xl hover:-translate-y-0.5"
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-brand-orange text-white font-semibold text-base hover:bg-brand-orange-light transition-all shadow-xl shadow-brand-orange/30 hover:-translate-y-0.5"
                 >
                   Get Started Free
                   <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
