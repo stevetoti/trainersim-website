@@ -123,7 +123,7 @@ function StatsSection() {
   ]
 
   return (
-    <section className="py-12 bg-gray-50 border-y border-gray-100">
+    <section className="py-20 bg-gray-50 border-y border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat) => (
@@ -173,9 +173,9 @@ function FeaturesSection() {
   ]
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Everything You Need to Transform Training
           </h2>
@@ -183,7 +183,7 @@ function FeaturesSection() {
             A complete AI training platform with realistic simulations, intelligent scoring, and enterprise-grade team management.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, i) => (
             <div
               key={i}
@@ -222,9 +222,9 @@ function UseCasesSection() {
   ]
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Built for Every Industry
           </h2>
@@ -232,7 +232,7 @@ function UseCasesSection() {
             From healthcare to finance, TrainerSim adapts to the conversations that matter most in your field.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {useCases.map((uc, i) => (
             <div
               key={i}
@@ -290,7 +290,7 @@ function HowItWorksSection() {
   ]
 
   return (
-    <section className="py-16 bg-[#EF5E33]">
+    <section className="py-24 bg-[#EF5E33]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         <h2 className="text-2xl sm:text-3xl font-bold mb-2">How It Works</h2>
         <p className="text-orange-100 text-lg mb-10">Three simple steps to better performance</p>
@@ -333,9 +333,9 @@ function TestimonialsSection() {
   ]
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Loved by Training Leaders
           </h2>
@@ -343,7 +343,7 @@ function TestimonialsSection() {
             See how organizations are transforming their training with TrainerSim
           </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((t, i) => (
             <div
               key={i}
@@ -406,9 +406,9 @@ function PricingPreviewSection() {
   ]
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Simple, Transparent Pricing
           </h2>
@@ -474,7 +474,7 @@ function PricingPreviewSection() {
 
 function CTASection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#233C6F] to-[#1A2D54] text-white">
+    <section className="py-24 bg-gradient-to-br from-[#233C6F] to-[#1A2D54] text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl sm:text-4xl font-bold mb-6">
           Ready to Transform Your Training?
