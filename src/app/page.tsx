@@ -274,7 +274,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════
                               HERO SECTION
          ═══════════════════════════════════════════════════════ */}
-      <section className="relative py-24 lg:py-32">
+      <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-20">
         {/* Background elements */}
         <div className="absolute inset-0 bg-dark-900" />
         <div className="absolute inset-0 bg-grid opacity-30" />
@@ -298,7 +298,7 @@ export default function Home() {
               <motion.h1 
                 variants={fadeUp} 
                 custom={1} 
-                className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight text-white mb-6"
+                className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight text-white mb-5"
               >
                 Master Every{' '}
                 <span className="gradient-text">Conversation</span>
@@ -310,7 +310,7 @@ export default function Home() {
               <motion.p 
                 variants={fadeUp} 
                 custom={2} 
-                className="text-lg leading-relaxed text-dark-200 max-w-3xl mx-auto mb-10"
+                className="text-lg leading-relaxed text-dark-200 max-w-3xl mx-auto mb-8"
               >
                 AI-powered training simulations that let your team practice high-stakes conversations with realistic AI personas. 
                 Real-time scoring, measurable improvement, and zero risk.
@@ -365,14 +365,14 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════
                               STATS SECTION
          ═══════════════════════════════════════════════════════ */}
-      <section className="py-24 lg:py-32 border-y border-white/5 bg-dark-800/50">
+      <section className="py-12 lg:py-16 border-y border-white/5 bg-dark-800/50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
             variants={stagger}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
           >
             {stats.map((s, i) => (
               <motion.div
@@ -395,14 +395,14 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════
                             FEATURES SECTION
          ═══════════════════════════════════════════════════════ */}
-      <section id="features" className="py-24 lg:py-32">
+      <section id="features" className="py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
             variants={stagger}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <motion.p variants={fadeUp} className="text-sm font-semibold text-blue-400 uppercase tracking-widest mb-4">Features</motion.p>
             <motion.h2 variants={fadeUp} custom={1} className="text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -419,17 +419,17 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
             variants={stagger}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
           >
             {features.map((f, i) => (
               <motion.div
                 key={f.title}
                 variants={fadeUp}
                 custom={i}
-                className="group relative p-8 rounded-2xl bg-dark-800/50 border border-white/5 hover:border-white/10 transition-all duration-300 hover:bg-dark-800/80"
+                className="group relative p-6 lg:p-8 rounded-2xl bg-dark-800/50 border border-white/5 hover:border-white/10 transition-all duration-300 hover:bg-dark-800/80"
               >
                 {/* Icon */}
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${f.gradient} flex items-center justify-center text-white mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${f.gradient} flex items-center justify-center text-white mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                   {f.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-4">{f.title}</h3>
@@ -446,14 +446,14 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════
                            USE CASES SECTION
          ═══════════════════════════════════════════════════════ */}
-      <section id="use-cases" className="py-24 lg:py-32 bg-dark-800/30">
+      <section id="use-cases" className="py-16 lg:py-20 bg-dark-800/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
             variants={stagger}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <motion.p variants={fadeUp} className="text-sm font-semibold text-purple-400 uppercase tracking-widest mb-4">Use Cases</motion.p>
             <motion.h2 variants={fadeUp} custom={1} className="text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -469,20 +469,20 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
             variants={stagger}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
           >
             {useCases.map((uc, i) => (
               <motion.div
                 key={uc.title}
                 variants={fadeUp}
                 custom={i}
-                className={`group relative p-8 rounded-2xl bg-gradient-to-br ${uc.color} border ${uc.border} hover:border-opacity-60 transition-all duration-300`}
+                className={`group relative p-6 lg:p-8 rounded-2xl bg-gradient-to-br ${uc.color} border ${uc.border} hover:border-opacity-60 transition-all duration-300`}
               >
-                <div className={`w-16 h-16 rounded-2xl ${uc.iconBg} flex items-center justify-center text-3xl mb-6`}>
+                <div className={`w-14 h-14 rounded-xl ${uc.iconBg} flex items-center justify-center text-3xl mb-5`}>
                   {uc.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-4">{uc.title}</h3>
-                <p className="text-base leading-relaxed text-dark-200 mb-6">{uc.desc}</p>
+                <p className="text-base leading-relaxed text-dark-200 mb-5">{uc.desc}</p>
                 <a
                   href={APP_URL}
                   className="inline-flex items-center gap-2 text-base font-medium text-blue-400 hover:text-blue-300 transition-colors"
@@ -502,14 +502,14 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════
                           HOW IT WORKS SECTION
          ═══════════════════════════════════════════════════════ */}
-      <section id="how-it-works" className="py-24 lg:py-32">
+      <section id="how-it-works" className="py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
             variants={stagger}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <motion.p variants={fadeUp} className="text-sm font-semibold text-emerald-400 uppercase tracking-widest mb-4">How It Works</motion.p>
             <motion.h2 variants={fadeUp} custom={1} className="text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -526,14 +526,14 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
             variants={stagger}
-            className="grid lg:grid-cols-3 gap-8 lg:gap-10 relative"
+            className="grid lg:grid-cols-3 gap-6 lg:gap-8 relative"
           >
             {/* Connection line for desktop */}
             <div className="hidden lg:block absolute top-24 left-[16.66%] right-[16.66%] h-px bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-emerald-500/30" />
 
             {howItWorks.map((step, i) => (
               <motion.div key={step.step} variants={fadeUp} custom={i} className="text-center relative">
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 mb-8 relative">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 mb-6 relative">
                   <div className="text-blue-400">
                     {step.icon}
                   </div>
@@ -553,7 +553,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-center mt-16"
+            className="text-center mt-12"
           >
             <a
               href={APP_URL}
@@ -572,14 +572,14 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════
                            PRICING SECTION
          ═══════════════════════════════════════════════════════ */}
-      <section id="pricing" className="py-24 lg:py-32 bg-dark-800/30">
+      <section id="pricing" className="py-16 lg:py-20 bg-dark-800/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
             variants={stagger}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <motion.p variants={fadeUp} className="text-sm font-semibold text-blue-400 uppercase tracking-widest mb-4">Pricing</motion.p>
             <motion.h2 variants={fadeUp} custom={1} className="text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -596,14 +596,14 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={stagger}
-            className="grid lg:grid-cols-3 gap-8 lg:gap-10 max-w-5xl mx-auto"
+            className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto"
           >
             {pricing.map((plan, i) => (
               <motion.div
                 key={plan.name}
                 variants={fadeUp}
                 custom={i}
-                className={`relative rounded-2xl p-8 flex flex-col ${
+                className={`relative rounded-2xl p-6 lg:p-8 flex flex-col ${
                   plan.popular
                     ? 'bg-gradient-to-b from-blue-500/10 via-purple-500/5 to-dark-800/80 border-2 border-blue-500/30 shadow-xl shadow-blue-500/10 scale-[1.02]'
                     : 'bg-dark-800/50 border border-white/5'
@@ -615,16 +615,16 @@ export default function Home() {
                   </div>
                 )}
 
-                <div className="mb-8">
-                  <h3 className="text-xl font-semibold text-white mb-4">{plan.name}</h3>
-                  <div className="flex items-baseline gap-2 mb-4">
+                <div className="mb-6">
+                  <h3 className="text-xl font-semibold text-white mb-3">{plan.name}</h3>
+                  <div className="flex items-baseline gap-2 mb-3">
                     <span className="text-4xl lg:text-5xl font-bold text-white">{plan.price}</span>
                     {plan.period && <span className="text-lg text-dark-400">{plan.period}</span>}
                   </div>
                   <p className="text-lg leading-relaxed text-dark-300">{plan.desc}</p>
                 </div>
 
-                <ul className="space-y-4 mb-8 flex-1">
+                <ul className="space-y-3 mb-6 flex-1">
                   {plan.features.map((f) => (
                     <li key={f} className="flex items-start gap-3 text-base text-dark-200 leading-relaxed">
                       <svg className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -657,14 +657,14 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════
                          TESTIMONIALS SECTION
          ═══════════════════════════════════════════════════════ */}
-      <section className="py-24 lg:py-32">
+      <section className="py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
             variants={stagger}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <motion.p variants={fadeUp} className="text-sm font-semibold text-purple-400 uppercase tracking-widest mb-4">Testimonials</motion.p>
             <motion.h2 variants={fadeUp} custom={1} className="text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -678,20 +678,20 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
             variants={stagger}
-            className="grid lg:grid-cols-3 gap-8 lg:gap-10"
+            className="grid lg:grid-cols-3 gap-6 lg:gap-8"
           >
             {testimonials.map((t, i) => (
               <motion.div
                 key={t.name}
                 variants={fadeUp}
                 custom={i}
-                className="p-8 rounded-2xl bg-dark-800/50 border border-white/5 hover:border-white/10 transition-all"
+                className="p-6 lg:p-8 rounded-2xl bg-dark-800/50 border border-white/5 hover:border-white/10 transition-all"
               >
                 {/* Quote marks */}
-                <div className="text-4xl text-blue-400 mb-6">&ldquo;</div>
+                <div className="text-4xl text-blue-400 mb-4">&ldquo;</div>
                 
                 {/* Stars */}
-                <div className="flex gap-1 mb-6">
+                <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, j) => (
                     <svg key={j} className="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -699,7 +699,7 @@ export default function Home() {
                   ))}
                 </div>
 
-                <p className="text-lg leading-relaxed text-dark-200 mb-8 italic">
+                <p className="text-lg leading-relaxed text-dark-200 mb-6 italic">
                   {t.quote}
                 </p>
                 
@@ -724,14 +724,14 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════
                            FINAL CTA SECTION
          ═══════════════════════════════════════════════════════ */}
-      <section className="py-24 lg:py-32">
+      <section className="py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative rounded-3xl overflow-hidden p-12 lg:p-16 text-center"
+            className="relative rounded-3xl overflow-hidden p-10 lg:p-14 text-center"
           >
             {/* Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 animate-gradient" />
@@ -742,7 +742,7 @@ export default function Home() {
               <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
                 Ready to Transform Your Training?
               </h2>
-              <p className="text-lg leading-relaxed text-white/80 max-w-2xl mx-auto mb-10">
+              <p className="text-lg leading-relaxed text-white/80 max-w-2xl mx-auto mb-8">
                 Join 500+ organizations using TrainerSim to build confident, skilled teams. Start your free trial today.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">

@@ -48,7 +48,7 @@ const columns = [
 export default function Footer() {
   return (
     <footer className="bg-dark-950 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
         {/* Top: logo + columns */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-12">
           {/* Brand column */}
@@ -112,7 +112,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 pt-10 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-6">
           <p className="text-sm text-dark-400">
             &copy; {new Date().getFullYear()} TrainerSim by Pacific Wave Digital. All rights reserved.
           </p>
