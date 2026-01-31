@@ -112,9 +112,13 @@ export default function UseCasesPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#233C6F] to-[#1A2D54] text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-br from-[#233C6F] via-[#1e3461] to-[#162849] text-white py-24 lg:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-72 h-72 bg-[#EF5E33] rounded-full blur-3xl" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
+            <p className="text-[#EF5E33] font-semibold text-sm uppercase tracking-wider mb-4">Use Cases</p>
             <h1 className="text-3xl sm:text-5xl font-bold mb-6">
               Built for{' '}
               <span className="text-[#EF5E33]">Every Industry</span>
@@ -129,14 +133,14 @@ export default function UseCasesPage() {
       </section>
 
       {/* Quick nav */}
-      <div className="bg-white border-b border-gray-100 sticky top-16 z-40">
+      <div className="bg-white border-b border-gray-100 sticky top-16 z-40 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-4 overflow-x-auto py-3 scrollbar-hide">
+          <div className="flex gap-2 overflow-x-auto py-3 scrollbar-hide">
             {industries.map((ind) => (
               <a
                 key={ind.id}
                 href={`#${ind.id}`}
-                className="text-sm font-medium text-gray-600 hover:text-[#233C6F] whitespace-nowrap px-3 py-1.5 rounded-full hover:bg-gray-50 transition-colors"
+                className="text-sm font-medium text-gray-600 hover:text-[#233C6F] whitespace-nowrap px-4 py-2 rounded-full hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-200"
               >
                 {ind.icon} {ind.title}
               </a>
@@ -146,39 +150,39 @@ export default function UseCasesPage() {
       </div>
 
       {/* Industries */}
-      <section className="bg-white py-12">
+      <section className="bg-white py-24 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
+          <div className="space-y-20">
             {industries.map((ind) => (
               <div key={ind.id} id={ind.id} className="scroll-mt-32">
-                <div className={`rounded-2xl ${ind.color} p-6 sm:p-8 lg:p-10`}>
-                  <div className="grid lg:grid-cols-2 gap-8 items-start">
+                <div className={`rounded-2xl ${ind.color} p-8 sm:p-10 lg:p-12 border border-gray-100`}>
+                  <div className="grid lg:grid-cols-2 gap-10 items-start">
                     <div>
-                      <div className={`w-14 h-14 rounded-xl ${ind.iconBg} flex items-center justify-center text-3xl mb-4`}>
+                      <div className={`w-16 h-16 rounded-2xl ${ind.iconBg} flex items-center justify-center text-3xl mb-5 shadow-sm`}>
                         {ind.icon}
                       </div>
                       <h2 className="text-2xl sm:text-3xl font-bold text-[#233C6F] mb-2">{ind.title}</h2>
                       <p className="text-[#233C6F]/70 font-medium mb-4">{ind.subtitle}</p>
                       <p className="text-gray-700 leading-relaxed mb-6">{ind.description}</p>
-                      <div className="bg-white rounded-xl p-4 border border-gray-100 mb-6">
+                      <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm mb-6">
                         <p className="text-2xl font-bold text-[#EF5E33] mb-1">{ind.stat}</p>
-                        <p className="text-gray-600 text-sm">{ind.result}</p>
+                        <p className="text-gray-600 text-sm leading-relaxed">{ind.result}</p>
                       </div>
                       <a
                         href={`${APP_URL}/auth`}
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-[#EF5E33] hover:bg-[#d94e28] text-white font-semibold rounded-xl transition-all shadow-sm"
+                        className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#EF5E33] hover:bg-[#d94e28] text-white font-semibold rounded-xl transition-all shadow-sm hover:shadow-md hover:scale-105"
                       >
                         Try {ind.title} Scenarios
                         <ArrowRight className="w-4 h-4" />
                       </a>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-[#233C6F] mb-4">Available Scenarios</h3>
-                      <div className="grid gap-2">
+                      <h3 className="font-semibold text-[#233C6F] mb-4 text-lg">Available Scenarios</h3>
+                      <div className="grid gap-3">
                         {ind.scenarios.map((s, j) => (
-                          <div key={j} className="flex items-center gap-3 bg-white rounded-lg p-3 border border-gray-100">
-                            <Check className="w-4 h-4 text-green-500 shrink-0" />
-                            <span className="text-gray-700 text-sm">{s}</span>
+                          <div key={j} className="flex items-center gap-3 bg-white rounded-xl p-4 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
+                            <Check className="w-5 h-5 text-green-500 shrink-0" />
+                            <span className="text-gray-700 text-sm font-medium">{s}</span>
                           </div>
                         ))}
                       </div>
@@ -192,23 +196,26 @@ export default function UseCasesPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-br from-[#233C6F] to-[#1A2D54] text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Don&apos;t See Your Industry?</h2>
-          <p className="text-blue-100 text-lg mb-8">
+      <section className="bg-gradient-to-br from-[#233C6F] via-[#1e3461] to-[#162849] text-white py-24 lg:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#EF5E33] rounded-full blur-3xl" />
+        </div>
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">Don&apos;t See Your Industry?</h2>
+          <p className="text-blue-100 text-lg mb-10 leading-relaxed max-w-2xl mx-auto">
             TrainerSim supports custom scenarios for any industry. Contact us to build training simulations tailored to your exact needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`${APP_URL}/auth`}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#EF5E33] hover:bg-[#d94e28] text-white font-semibold rounded-xl transition-all shadow-lg text-lg"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#EF5E33] hover:bg-[#d94e28] text-white font-semibold rounded-xl transition-all shadow-lg shadow-orange-500/25 text-lg hover:shadow-xl hover:scale-105"
             >
               Start Free Trial
               <ArrowRight className="w-5 h-5" />
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-all text-lg"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-all text-lg border border-white/20"
             >
               Contact Us
               <ChevronRight className="w-5 h-5" />

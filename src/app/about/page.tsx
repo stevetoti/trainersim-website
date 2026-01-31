@@ -14,9 +14,14 @@ export default function AboutPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#233C6F] to-[#1A2D54] text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-br from-[#233C6F] via-[#1e3461] to-[#162849] text-white py-24 lg:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 right-10 w-72 h-72 bg-[#EF5E33] rounded-full blur-3xl" />
+          <div className="absolute bottom-10 left-20 w-64 h-64 bg-blue-400 rounded-full blur-3xl" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
+            <p className="text-[#EF5E33] font-semibold text-sm uppercase tracking-wider mb-4">About Us</p>
             <h1 className="text-3xl sm:text-5xl font-bold mb-6">
               Transforming Professional Training with{' '}
               <span className="text-[#EF5E33]">AI</span>
@@ -30,12 +35,35 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="bg-white py-20">
+      {/* Stats Bar */}
+      <section className="bg-gradient-to-r from-[#EF5E33] to-[#d94e28] py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { icon: <Users className="w-6 h-6" />, number: '500+', label: 'Organizations' },
+              { icon: <BarChart3 className="w-6 h-6" />, number: '10,000+', label: 'Training Sessions' },
+              { icon: <Globe className="w-6 h-6" />, number: '12', label: 'Industries' },
+              { icon: <Award className="w-6 h-6" />, number: '190+', label: 'AI Agents' },
+            ].map((stat, i) => (
+              <div key={i} className="text-center">
+                <div className="w-12 h-12 rounded-xl bg-white/20 text-white flex items-center justify-center mx-auto mb-3">
+                  {stat.icon}
+                </div>
+                <p className="text-3xl font-bold text-white">{stat.number}</p>
+                <p className="text-white/80 text-sm">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mission & Vision */}
+      <section className="bg-white py-24 lg:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-[#233C6F] mb-6">Our Mission</h2>
+              <p className="text-[#EF5E33] font-semibold text-sm uppercase tracking-wider mb-3">Our Mission</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-6">Democratizing Professional Training</h2>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
                 We&apos;re on a mission to democratize professional training. Traditional role-play 
                 workshops are expensive, inconsistent, and hard to scale. TrainerSim gives every 
@@ -47,8 +75,8 @@ export default function AboutPage() {
                 provides a safe space to practice, fail, learn, and improve.
               </p>
             </div>
-            <div className="bg-gradient-to-br from-[#EF5E33]/10 to-[#233C6F]/10 rounded-2xl p-8">
-              <div className="grid grid-cols-2 gap-6">
+            <div className="bg-gradient-to-br from-[#233C6F]/5 to-[#EF5E33]/5 rounded-2xl p-10 border border-gray-100">
+              <div className="grid grid-cols-2 gap-8">
                 {[
                   { icon: <Users className="w-8 h-8" />, number: '500+', label: 'Organizations' },
                   { icon: <BarChart3 className="w-8 h-8" />, number: '10,000+', label: 'Training Sessions' },
@@ -56,7 +84,7 @@ export default function AboutPage() {
                   { icon: <Award className="w-8 h-8" />, number: '190+', label: 'AI Agents' },
                 ].map((stat, i) => (
                   <div key={i} className="text-center">
-                    <div className="w-14 h-14 rounded-xl bg-[#233C6F]/10 text-[#233C6F] flex items-center justify-center mx-auto mb-3">
+                    <div className="w-16 h-16 rounded-2xl bg-[#233C6F]/10 text-[#233C6F] flex items-center justify-center mx-auto mb-3">
                       {stat.icon}
                     </div>
                     <p className="text-2xl font-bold text-[#233C6F]">{stat.number}</p>
@@ -70,11 +98,12 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-50 py-24 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#233C6F] mb-4">What Drives Us</h2>
-            <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-[#EF5E33] font-semibold text-sm uppercase tracking-wider mb-3">Our Values</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">What Drives Us</h2>
+            <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
               Our core values shape every feature we build and every decision we make
             </p>
           </div>
@@ -96,11 +125,11 @@ export default function AboutPage() {
                 content: 'Great training shouldn\'t be reserved for companies with big budgets. TrainerSim makes professional development accessible at a fraction of the traditional cost.',
               },
             ].map((item, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                <div className="w-12 h-12 rounded-lg bg-[#EF5E33]/10 text-[#EF5E33] flex items-center justify-center mb-4">
+              <div key={i} className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
+                <div className="w-14 h-14 rounded-xl bg-[#EF5E33]/10 text-[#EF5E33] flex items-center justify-center mb-5 group-hover:bg-[#EF5E33] group-hover:text-white transition-colors duration-300">
                   {item.icon}
                 </div>
-                <h3 className="font-semibold text-[#233C6F] text-lg mb-3">{item.title}</h3>
+                <h3 className="font-semibold text-[#233C6F] text-xl mb-3">{item.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{item.content}</p>
               </div>
             ))}
@@ -109,15 +138,16 @@ export default function AboutPage() {
       </section>
 
       {/* Technology */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-24 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#233C6F] mb-4">Powered by Cutting-Edge AI</h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-[#EF5E33] font-semibold text-sm uppercase tracking-wider mb-3">Technology</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">Powered by Cutting-Edge AI</h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
               TrainerSim integrates best-in-class AI technologies to deliver an unmatched training experience
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
                 icon: <Zap className="w-6 h-6" />,
@@ -140,12 +170,12 @@ export default function AboutPage() {
                 desc: 'Enterprise-grade infrastructure for secure, scalable data management.',
               },
             ].map((tech, i) => (
-              <div key={i} className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center">
-                <div className="w-12 h-12 rounded-lg bg-[#233C6F]/10 text-[#233C6F] flex items-center justify-center mx-auto mb-3">
+              <div key={i} className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="w-14 h-14 rounded-xl bg-[#233C6F]/10 text-[#233C6F] flex items-center justify-center mx-auto mb-4">
                   {tech.icon}
                 </div>
-                <h3 className="font-semibold text-[#233C6F] mb-1">{tech.title}</h3>
-                <p className="text-gray-600 text-sm">{tech.desc}</p>
+                <h3 className="font-semibold text-[#233C6F] text-lg mb-2">{tech.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{tech.desc}</p>
               </div>
             ))}
           </div>
@@ -153,34 +183,37 @@ export default function AboutPage() {
       </section>
 
       {/* Pacific Wave Digital */}
-      <section className="bg-gradient-to-br from-[#233C6F] to-[#1A2D54] py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+      <section className="bg-gradient-to-br from-[#233C6F] via-[#1e3461] to-[#162849] py-24 lg:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-[#EF5E33] rounded-full blur-3xl" />
+        </div>
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <Image
             src="/trainersim-logo-white.png"
             alt="TrainerSim"
             width={80}
             height={80}
-            className="rounded-xl mx-auto mb-6"
+            className="rounded-xl mx-auto mb-8"
           />
-          <h3 className="text-2xl font-bold mb-4">Built by Pacific Wave Digital</h3>
-          <p className="text-blue-100 max-w-lg mx-auto mb-4">
+          <h3 className="text-3xl font-bold mb-6">Built by Pacific Wave Digital</h3>
+          <p className="text-blue-100 text-lg max-w-lg mx-auto mb-4 leading-relaxed">
             TrainerSim is built by Pacific Wave Digital, a technology company focused on 
             creating innovative AI-powered solutions for professional development and education.
           </p>
-          <p className="text-blue-200 text-sm mb-8">
+          <p className="text-blue-200 text-sm mb-10">
             Based in Vanuatu · Serving organizations worldwide
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`${APP_URL}/auth`}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#EF5E33] hover:bg-[#d94e28] text-white font-semibold rounded-xl transition-all shadow-lg"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#EF5E33] hover:bg-[#d94e28] text-white font-semibold rounded-xl transition-all shadow-lg shadow-orange-500/25 text-lg hover:shadow-xl hover:scale-105"
             >
               Start Training Today
               <ArrowRight className="w-5 h-5" />
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-all text-lg border border-white/20"
             >
               Get in Touch
             </Link>

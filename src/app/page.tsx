@@ -18,7 +18,7 @@ function HeroSection() {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-400 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-6 backdrop-blur-sm">
@@ -41,7 +41,7 @@ function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href={`${APP_URL}/auth`}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#EF5E33] hover:bg-[#d94e28] text-white font-semibold rounded-xl transition-all shadow-lg shadow-orange-500/25 text-lg"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#EF5E33] hover:bg-[#d94e28] text-white font-semibold rounded-xl transition-all shadow-lg shadow-orange-500/25 text-lg hover:shadow-xl hover:scale-105"
               >
                 Start Training Free
                 <ArrowRight className="w-5 h-5" />
@@ -69,7 +69,7 @@ function HeroSection() {
 
           {/* Hero visual — Chat simulation preview */}
           <div className="relative hidden lg:block">
-            <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/20">
+            <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/20 shadow-2xl">
               <div className="flex items-center gap-2 mb-4 pb-3 border-b border-white/10">
                 <div className="w-3 h-3 rounded-full bg-red-400" />
                 <div className="w-3 h-3 rounded-full bg-yellow-400" />
@@ -121,7 +121,7 @@ function HeroSection() {
   )
 }
 
-/* ─── Social Proof Bar ─── */
+/* ─── Social Proof / Stats Bar ─── */
 function StatsSection() {
   const stats = [
     { value: '10,000+', label: 'Training Sessions' },
@@ -131,13 +131,13 @@ function StatsSection() {
   ]
 
   return (
-    <section className="py-20 bg-gray-50 border-y border-gray-100">
+    <section className="bg-gradient-to-r from-[#EF5E33] to-[#d94e28] py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
-              <p className="text-3xl lg:text-4xl font-bold text-[#EF5E33] mb-1">{stat.value}</p>
-              <p className="text-gray-600">{stat.label}</p>
+              <p className="text-3xl lg:text-4xl font-bold text-white mb-1">{stat.value}</p>
+              <p className="text-white/80 text-sm">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -182,13 +182,13 @@ function FeaturesSection() {
   ]
 
   return (
-    <section id="features" className="py-24 bg-white">
+    <section id="features" className="py-24 lg:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Everything You Need to Transform Training
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
             A complete AI training platform with realistic simulations, intelligent scoring, and enterprise-grade team management.
           </p>
         </div>
@@ -197,21 +197,21 @@ function FeaturesSection() {
           {features.map((feature, i) => (
             <div
               key={i}
-              className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:-translate-y-1"
             >
-              <div className="w-12 h-12 rounded-lg bg-[#EF5E33]/10 text-[#EF5E33] flex items-center justify-center mb-4">
+              <div className="w-14 h-14 rounded-xl bg-[#EF5E33]/10 text-[#EF5E33] flex items-center justify-center mb-5">
                 {feature.icon}
               </div>
-              <h3 className="text-lg font-semibold text-[#233C6F] mb-2">{feature.title}</h3>
+              <h3 className="text-lg font-semibold text-[#233C6F] mb-3">{feature.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-12">
           <Link
             href="/features"
-            className="text-[#EF5E33] hover:text-[#d94e28] font-medium inline-flex items-center gap-1"
+            className="inline-flex items-center gap-2 px-6 py-3 text-[#EF5E33] hover:text-[#d94e28] font-semibold border-2 border-[#EF5E33]/20 hover:border-[#EF5E33]/40 rounded-xl transition-all"
           >
             Explore all features
             <ArrowRight className="w-4 h-4" />
@@ -234,13 +234,13 @@ function UseCasesSection() {
   ]
 
   return (
-    <section id="use-cases" className="py-24 bg-gray-50">
+    <section id="use-cases" className="py-24 lg:py-28 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Built for Every Industry
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
             From healthcare to finance, TrainerSim adapts to the conversations that matter most in your field.
           </p>
         </div>
@@ -249,13 +249,13 @@ function UseCasesSection() {
           {useCases.map((uc, i) => (
             <div
               key={i}
-              className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:-translate-y-1 group"
             >
-              <div className="w-12 h-12 rounded-lg bg-[#EF5E33]/10 text-[#EF5E33] flex items-center justify-center mb-4">
+              <div className="w-14 h-14 rounded-xl bg-[#EF5E33]/10 text-[#EF5E33] flex items-center justify-center mb-5 group-hover:bg-[#EF5E33] group-hover:text-white transition-colors duration-300">
                 {uc.icon}
               </div>
-              <h3 className="text-lg font-semibold text-[#233C6F] mb-2">{uc.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">{uc.desc}</p>
+              <h3 className="text-lg font-semibold text-[#233C6F] mb-3">{uc.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-5">{uc.desc}</p>
               <a
                 href={`${APP_URL}/auth`}
                 className="inline-flex items-center gap-1 text-sm font-medium text-[#EF5E33] hover:text-[#d94e28] transition-colors"
@@ -267,10 +267,10 @@ function UseCasesSection() {
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-12">
           <Link
             href="/use-cases"
-            className="text-[#EF5E33] hover:text-[#d94e28] font-medium inline-flex items-center gap-1"
+            className="inline-flex items-center gap-2 px-6 py-3 text-[#EF5E33] hover:text-[#d94e28] font-semibold border-2 border-[#EF5E33]/20 hover:border-[#EF5E33]/40 rounded-xl transition-all"
           >
             View all use cases
             <ArrowRight className="w-4 h-4" />
@@ -305,20 +305,25 @@ function HowItWorksSection() {
   ]
 
   return (
-    <section className="py-24 bg-gradient-to-br from-[#233C6F] to-[#162849] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 lg:py-28 bg-gradient-to-br from-[#233C6F] via-[#1e3461] to-[#162849] text-white relative overflow-hidden">
+      {/* Subtle background glow */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#EF5E33] rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">How It Works</h2>
-          <p className="text-blue-200 text-lg max-w-2xl mx-auto">Three simple steps to better performance</p>
+          <p className="text-blue-200 text-lg max-w-2xl mx-auto leading-relaxed">Three simple steps to better performance</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step) => (
-            <div key={step.step} className="relative bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/10 text-center">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#EF5E33] text-white flex items-center justify-center text-sm font-bold shadow-lg">
+            <div key={step.step} className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center hover:bg-white/15 transition-all duration-300">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-[#EF5E33] text-white flex items-center justify-center text-sm font-bold shadow-lg shadow-orange-500/30">
                 {step.step}
               </div>
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-white/10 mb-5 mt-2">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/10 mb-6 mt-2">
                 {step.icon}
               </div>
               <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
@@ -352,13 +357,14 @@ function TestimonialsSection() {
   ]
 
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 lg:py-28 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
+          <p className="text-[#EF5E33] font-semibold text-sm uppercase tracking-wider mb-3">Testimonials</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Loved by Training Leaders
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
             See how organizations are transforming their training with TrainerSim
           </p>
         </div>
@@ -367,22 +373,22 @@ function TestimonialsSection() {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="bg-white rounded-xl p-8 shadow-sm border border-gray-100"
+              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:-translate-y-1"
             >
-              <div className="flex items-center gap-1 mb-4">
+              <div className="flex items-center gap-1 mb-5">
                 {Array.from({ length: 5 }).map((_, j) => (
-                  <Star key={j} className="w-4 h-4 text-yellow-400 fill-current" />
+                  <Star key={j} className="w-5 h-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <p className="text-gray-700 mb-4 leading-relaxed italic">
+              <p className="text-gray-700 mb-6 leading-relaxed italic text-[15px]">
                 &quot;{t.quote}&quot;
               </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#233C6F] text-white flex items-center justify-center text-sm font-bold">
+              <div className="flex items-center gap-3 pt-5 border-t border-gray-100">
+                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#233C6F] to-[#162849] text-white flex items-center justify-center text-sm font-bold shadow-sm">
                   {t.name.split(' ').map((n) => n[0]).join('')}
                 </div>
                 <div>
-                  <p className="font-medium text-[#233C6F] text-sm">{t.name}</p>
+                  <p className="font-semibold text-[#233C6F] text-sm">{t.name}</p>
                   <p className="text-gray-500 text-xs">{t.role}</p>
                 </div>
               </div>
@@ -430,13 +436,14 @@ function PricingSection() {
   ]
 
   return (
-    <section id="pricing" className="py-24 bg-white">
+    <section id="pricing" className="py-24 lg:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
+          <p className="text-[#EF5E33] font-semibold text-sm uppercase tracking-wider mb-3">Pricing</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
             Start free, scale as you grow. No hidden fees.
           </p>
         </div>
@@ -445,14 +452,14 @@ function PricingSection() {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative bg-white rounded-xl p-8 border-2 transition-shadow ${
+              className={`relative bg-white rounded-2xl p-8 border-2 transition-all duration-300 hover:-translate-y-1 ${
                 plan.popular
-                  ? 'border-[#EF5E33] shadow-lg shadow-orange-100'
-                  : 'border-gray-100 hover:shadow-md'
+                  ? 'border-[#EF5E33] shadow-xl shadow-orange-100 scale-[1.02]'
+                  : 'border-gray-100 hover:shadow-lg'
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#EF5E33] text-white text-xs font-bold rounded-full">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#EF5E33] text-white text-xs font-bold rounded-full shadow-sm">
                   Most Popular
                 </div>
               )}
@@ -472,10 +479,10 @@ function PricingSection() {
               </ul>
               <a
                 href={plan.href}
-                className={`block text-center py-3 rounded-lg font-semibold text-sm transition-colors ${
+                className={`block text-center py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
                   plan.popular
-                    ? 'bg-[#EF5E33] hover:bg-[#d94e28] text-white shadow-sm'
-                    : 'bg-gray-50 hover:bg-gray-100 text-[#233C6F] border border-gray-200'
+                    ? 'bg-[#EF5E33] hover:bg-[#d94e28] text-white shadow-sm hover:shadow-md'
+                    : 'bg-gray-50 hover:bg-[#233C6F] text-[#233C6F] hover:text-white border border-gray-200 hover:border-[#233C6F]'
                 }`}
               >
                 {plan.cta}
@@ -484,10 +491,10 @@ function PricingSection() {
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-12">
           <Link
             href="/pricing"
-            className="text-[#EF5E33] hover:text-[#d94e28] font-medium inline-flex items-center gap-1"
+            className="inline-flex items-center gap-2 px-6 py-3 text-[#EF5E33] hover:text-[#d94e28] font-semibold border-2 border-[#EF5E33]/20 hover:border-[#EF5E33]/40 rounded-xl transition-all"
           >
             Compare all plans
             <ArrowRight className="w-4 h-4" />
@@ -501,40 +508,46 @@ function PricingSection() {
 /* ─── Final CTA ─── */
 function CTASection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#233C6F] to-[#162849] text-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+    <section className="py-24 lg:py-28 bg-gradient-to-br from-[#233C6F] via-[#1e3461] to-[#162849] text-white relative overflow-hidden">
+      {/* Background accents */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#EF5E33] rounded-full blur-3xl" />
+        <div className="absolute top-0 right-1/3 w-64 h-64 bg-blue-400 rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
           Ready to Transform Your Training?
         </h2>
-        <p className="text-blue-200 text-lg mb-4 max-w-2xl mx-auto">
+        <p className="text-blue-200 text-lg mb-4 max-w-2xl mx-auto leading-relaxed">
           Join 500+ organizations using TrainerSim to build confident, skilled teams.
         </p>
-        <p className="text-blue-200 text-lg mb-8 max-w-2xl mx-auto">
+        <p className="text-blue-200 text-lg mb-10 max-w-2xl mx-auto">
           Start your free trial today — no credit card required.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href={`${APP_URL}/auth`}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#EF5E33] hover:bg-[#d94e28] text-white font-semibold rounded-xl transition-all shadow-lg shadow-orange-500/25 text-lg"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#EF5E33] hover:bg-[#d94e28] text-white font-semibold rounded-xl transition-all shadow-lg shadow-orange-500/25 text-lg hover:shadow-xl hover:scale-105"
           >
             Get Started Free
             <ArrowRight className="w-5 h-5" />
           </a>
-          <a
+          <Link
             href="/contact"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-all backdrop-blur-sm text-lg border border-white/20"
           >
             Talk to Sales
-          </a>
+          </Link>
         </div>
 
-        <div className="flex items-center justify-center gap-4 mt-10">
+        <div className="flex items-center justify-center gap-4 mt-12">
           <div className="flex -space-x-2">
             {['SC', 'ML', 'JW', 'TK', 'RB'].map((initials, i) => (
               <div
                 key={i}
-                className="w-9 h-9 rounded-full bg-white/20 border-2 border-[#233C6F] flex items-center justify-center text-xs font-bold backdrop-blur-sm"
+                className="w-10 h-10 rounded-full bg-white/20 border-2 border-[#233C6F] flex items-center justify-center text-xs font-bold backdrop-blur-sm"
               >
                 {initials}
               </div>

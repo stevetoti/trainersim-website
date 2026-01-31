@@ -123,30 +123,35 @@ export default function PricingPage() {
   return (
     <div>
       {/* Header */}
-      <section className="bg-gradient-to-br from-[#233C6F] to-[#1A2D54] text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-4">Simple, Transparent Pricing</h1>
-          <p className="text-blue-100 text-lg max-w-2xl mx-auto">
+      <section className="bg-gradient-to-br from-[#233C6F] via-[#1e3461] to-[#162849] text-white py-24 lg:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 right-10 w-72 h-72 bg-[#EF5E33] rounded-full blur-3xl" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-[#EF5E33] font-semibold text-sm uppercase tracking-wider mb-4">Pricing</p>
+          <h1 className="text-3xl sm:text-5xl font-bold mb-6">Simple, Transparent Pricing</h1>
+          <p className="text-blue-100 text-lg max-w-2xl mx-auto leading-relaxed">
             Start free, scale as you grow. No hidden fees, no surprises. Cancel anytime.
           </p>
         </div>
       </section>
 
-      <section className="bg-gray-50 py-12">
+      {/* Plans */}
+      <section className="bg-gray-50 py-24 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Plan cards */}
-          <div className="grid lg:grid-cols-3 gap-6 mb-16 -mt-20 max-w-5xl mx-auto">
+          {/* Plan cards - overlap into hero */}
+          <div className="grid lg:grid-cols-3 gap-8 mb-24 -mt-16 max-w-5xl mx-auto">
             {plans.map((plan) => (
               <div
                 key={plan.name}
-                className={`relative bg-white rounded-xl p-6 border-2 shadow-lg ${
+                className={`relative bg-white rounded-2xl p-8 border-2 transition-all duration-300 hover:-translate-y-1 ${
                   plan.popular
-                    ? 'border-[#EF5E33] shadow-xl shadow-orange-100 scale-105 z-10'
-                    : 'border-gray-100'
+                    ? 'border-[#EF5E33] shadow-xl shadow-orange-100 scale-[1.03] z-10'
+                    : 'border-gray-100 shadow-lg hover:shadow-xl'
                 }`}
               >
                 {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#EF5E33] text-white text-xs font-bold rounded-full">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#EF5E33] text-white text-xs font-bold rounded-full shadow-sm">
                     Most Popular
                   </div>
                 )}
@@ -155,7 +160,7 @@ export default function PricingPage() {
                   <span className="text-4xl font-bold text-[#233C6F]">{plan.price}</span>
                   {plan.period && <span className="text-gray-500">{plan.period}</span>}
                 </div>
-                <p className="text-gray-600 text-sm mb-6">{plan.description}</p>
+                <p className="text-gray-600 text-sm mb-6 leading-relaxed">{plan.description}</p>
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm">
@@ -166,9 +171,9 @@ export default function PricingPage() {
                 </ul>
                 <a
                   href={plan.href}
-                  className={`block text-center py-3 rounded-lg font-semibold transition-colors ${
+                  className={`block text-center py-3.5 rounded-xl font-semibold transition-all duration-300 ${
                     plan.popular
-                      ? 'bg-[#EF5E33] hover:bg-[#d94e28] text-white'
+                      ? 'bg-[#EF5E33] hover:bg-[#d94e28] text-white shadow-sm hover:shadow-md'
                       : 'bg-[#233C6F] hover:bg-[#1A2D54] text-white'
                   }`}
                 >
@@ -179,26 +184,27 @@ export default function PricingPage() {
           </div>
 
           {/* Comparison table */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-            <div className="p-6 border-b border-gray-100">
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+            <div className="p-8 border-b border-gray-100">
               <h2 className="text-2xl font-bold text-[#233C6F]">Compare Plans</h2>
+              <p className="text-gray-600 text-sm mt-1">See which plan is right for your team</p>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
                   <tr className="bg-gray-50">
-                    <th className="text-left px-6 py-3 text-sm font-semibold text-gray-600">Feature</th>
-                    <th className="text-center px-4 py-3 text-sm font-semibold text-gray-600">Starter</th>
-                    <th className="text-center px-4 py-3 text-sm font-semibold text-[#EF5E33]">Professional</th>
-                    <th className="text-center px-4 py-3 text-sm font-semibold text-gray-600">Enterprise</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-600">Feature</th>
+                    <th className="text-center px-4 py-4 text-sm font-semibold text-gray-600">Starter</th>
+                    <th className="text-center px-4 py-4 text-sm font-semibold text-[#EF5E33]">Professional</th>
+                    <th className="text-center px-4 py-4 text-sm font-semibold text-gray-600">Enterprise</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-50">
                   {comparisonFeatures.map((row, i) => (
-                    <tr key={i} className="hover:bg-gray-50">
-                      <td className="px-6 py-3 text-sm text-gray-700">{row.feature}</td>
+                    <tr key={i} className="hover:bg-gray-50 transition-colors">
+                      <td className="px-6 py-3.5 text-sm text-gray-700 font-medium">{row.feature}</td>
                       {(['starter', 'professional', 'enterprise'] as const).map((plan) => (
-                        <td key={plan} className="px-4 py-3 text-sm text-center">
+                        <td key={plan} className="px-4 py-3.5 text-sm text-center">
                           {row[plan] === true ? (
                             <Check className="w-5 h-5 text-green-500 mx-auto" />
                           ) : row[plan] === false ? (
@@ -214,33 +220,55 @@ export default function PricingPage() {
               </table>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* FAQ */}
-          <div className="mt-16">
-            <h2 className="text-2xl font-bold text-[#233C6F] text-center mb-8">Frequently Asked Questions</h2>
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {faqs.map((faq, i) => (
-                <div key={i} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                  <h3 className="font-semibold text-[#233C6F] mb-2 flex items-center gap-2">
-                    <HelpCircle className="w-5 h-5 text-[#EF5E33] shrink-0" />
-                    {faq.q}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
-                </div>
-              ))}
-            </div>
+      {/* FAQ */}
+      <section className="bg-white py-24 lg:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <p className="text-[#EF5E33] font-semibold text-sm uppercase tracking-wider mb-3">FAQ</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">Frequently Asked Questions</h2>
+            <p className="text-gray-600 text-lg leading-relaxed">Everything you need to know about our pricing</p>
           </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {faqs.map((faq, i) => (
+              <div key={i} className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300">
+                <h3 className="font-semibold text-[#233C6F] mb-3 flex items-start gap-3">
+                  <HelpCircle className="w-5 h-5 text-[#EF5E33] shrink-0 mt-0.5" />
+                  <span>{faq.q}</span>
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed pl-8">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          {/* Bottom CTA */}
-          <div className="text-center mt-16">
-            <p className="text-gray-600 mb-4">Still have questions?</p>
+      {/* Bottom CTA */}
+      <section className="bg-gradient-to-br from-[#233C6F] via-[#1e3461] to-[#162849] text-white py-24 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#EF5E33] rounded-full blur-3xl" />
+        </div>
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">Still Have Questions?</h2>
+          <p className="text-blue-100 text-lg mb-10 leading-relaxed max-w-2xl mx-auto">
+            Our team is ready to help you find the perfect plan for your organization.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#233C6F] hover:bg-[#1A2D54] text-white font-semibold rounded-xl transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#EF5E33] hover:bg-[#d94e28] text-white font-semibold rounded-xl transition-all shadow-lg shadow-orange-500/25 text-lg hover:shadow-xl hover:scale-105"
             >
-              Talk to our team
-              <ArrowRight className="w-4 h-4" />
+              Talk to Our Team
+              <ArrowRight className="w-5 h-5" />
             </Link>
+            <a
+              href={`${APP_URL}/auth`}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-all backdrop-blur-sm text-lg border border-white/20"
+            >
+              Start Free Trial
+            </a>
           </div>
         </div>
       </section>
