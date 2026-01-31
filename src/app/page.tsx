@@ -18,15 +18,15 @@ function HeroSection() {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-400 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-6 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-8 backdrop-blur-sm">
               <Sparkles className="w-4 h-4 text-[#EF5E33]" />
               <span>190 AI Agents · 12 Industries · Video &amp; Audio</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight mb-8">
               Master Every{' '}
               <span className="text-[#EF5E33]">Conversation</span>
               <br />
@@ -131,8 +131,8 @@ function StatsSection() {
   ]
 
   return (
-    <section className="bg-gradient-to-r from-[#EF5E33] to-[#d94e28] py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-gradient-to-r from-[#EF5E33] to-[#d94e28] py-12 sm:py-14">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
@@ -182,9 +182,9 @@ function FeaturesSection() {
   ]
 
   return (
-    <section id="features" className="py-24 lg:py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+    <section id="features" className="py-28 lg:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="text-center mb-20">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Everything You Need to Transform Training
           </h2>
@@ -193,16 +193,16 @@ function FeaturesSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {features.map((feature, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:-translate-y-1"
+              className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:-translate-y-1"
             >
-              <div className="w-14 h-14 rounded-xl bg-[#EF5E33]/10 text-[#EF5E33] flex items-center justify-center mb-5">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#EF5E33]/10 text-[#EF5E33] flex items-center justify-center mb-5">
                 {feature.icon}
               </div>
-              <h3 className="text-lg font-semibold text-[#233C6F] mb-3">{feature.title}</h3>
+              <h3 className="text-xl font-semibold text-[#233C6F] mb-3">{feature.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
             </div>
           ))}
@@ -234,9 +234,9 @@ function UseCasesSection() {
   ]
 
   return (
-    <section id="use-cases" className="py-24 lg:py-28 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+    <section id="use-cases" className="py-28 lg:py-32 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="text-center mb-20">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Built for Every Industry
           </h2>
@@ -245,16 +245,16 @@ function UseCasesSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {useCases.map((uc, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:-translate-y-1 group"
+              className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:-translate-y-1 group"
             >
-              <div className="w-14 h-14 rounded-xl bg-[#EF5E33]/10 text-[#EF5E33] flex items-center justify-center mb-5 group-hover:bg-[#EF5E33] group-hover:text-white transition-colors duration-300">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#EF5E33]/10 text-[#EF5E33] flex items-center justify-center mb-5 group-hover:bg-[#EF5E33] group-hover:text-white transition-colors duration-300">
                 {uc.icon}
               </div>
-              <h3 className="text-lg font-semibold text-[#233C6F] mb-3">{uc.title}</h3>
+              <h3 className="text-xl font-semibold text-[#233C6F] mb-3">{uc.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed mb-5">{uc.desc}</p>
               <a
                 href={`${APP_URL}/auth`}
@@ -305,21 +305,21 @@ function HowItWorksSection() {
   ]
 
   return (
-    <section className="py-24 lg:py-28 bg-gradient-to-br from-[#233C6F] via-[#1e3461] to-[#162849] text-white relative overflow-hidden">
+    <section className="py-28 lg:py-32 bg-gradient-to-br from-[#233C6F] via-[#1e3461] to-[#162849] text-white relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#EF5E33] rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="text-center mb-20">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">How It Works</h2>
           <p className="text-blue-200 text-lg max-w-2xl mx-auto leading-relaxed">Three simple steps to better performance</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
           {steps.map((step) => (
-            <div key={step.step} className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center hover:bg-white/15 transition-all duration-300">
+            <div key={step.step} className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10 text-center hover:bg-white/15 transition-all duration-300">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-[#EF5E33] text-white flex items-center justify-center text-sm font-bold shadow-lg shadow-orange-500/30">
                 {step.step}
               </div>
@@ -357,9 +357,9 @@ function TestimonialsSection() {
   ]
 
   return (
-    <section className="py-24 lg:py-28 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+    <section className="py-28 lg:py-32 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="text-center mb-20">
           <p className="text-[#EF5E33] font-semibold text-sm uppercase tracking-wider mb-3">Testimonials</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Loved by Training Leaders
@@ -369,11 +369,11 @@ function TestimonialsSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:-translate-y-1"
+              className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:-translate-y-1"
             >
               <div className="flex items-center gap-1 mb-5">
                 {Array.from({ length: 5 }).map((_, j) => (
@@ -436,9 +436,9 @@ function PricingSection() {
   ]
 
   return (
-    <section id="pricing" className="py-24 lg:py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+    <section id="pricing" className="py-28 lg:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="text-center mb-20">
           <p className="text-[#EF5E33] font-semibold text-sm uppercase tracking-wider mb-3">Pricing</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Simple, Transparent Pricing
@@ -448,11 +448,11 @@ function PricingSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative bg-white rounded-2xl p-8 border-2 transition-all duration-300 hover:-translate-y-1 ${
+              className={`relative bg-white rounded-2xl p-6 sm:p-8 border-2 transition-all duration-300 hover:-translate-y-1 ${
                 plan.popular
                   ? 'border-[#EF5E33] shadow-xl shadow-orange-100 scale-[1.02]'
                   : 'border-gray-100 hover:shadow-lg'
@@ -508,15 +508,15 @@ function PricingSection() {
 /* ─── Final CTA ─── */
 function CTASection() {
   return (
-    <section className="py-24 lg:py-28 bg-gradient-to-br from-[#233C6F] via-[#1e3461] to-[#162849] text-white relative overflow-hidden">
+    <section className="py-28 lg:py-32 bg-gradient-to-br from-[#233C6F] via-[#1e3461] to-[#162849] text-white relative overflow-hidden">
       {/* Background accents */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#EF5E33] rounded-full blur-3xl" />
         <div className="absolute top-0 right-1/3 w-64 h-64 bg-blue-400 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+      <div className="relative max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8">
           Ready to Transform Your Training?
         </h2>
         <p className="text-blue-200 text-lg mb-4 max-w-2xl mx-auto leading-relaxed">
