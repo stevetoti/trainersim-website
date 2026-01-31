@@ -193,11 +193,11 @@ function FeaturesSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
           {features.map((feature, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:-translate-y-1"
+              className="bg-white rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-1"
             >
               <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#EF5E33]/10 text-[#EF5E33] flex items-center justify-center mb-5">
                 {feature.icon}
@@ -245,11 +245,11 @@ function UseCasesSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
           {useCases.map((uc, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:-translate-y-1 group"
+              className="bg-white rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-1 group"
             >
               <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#EF5E33]/10 text-[#EF5E33] flex items-center justify-center mb-5 group-hover:bg-[#EF5E33] group-hover:text-white transition-colors duration-300">
                 {uc.icon}
@@ -317,9 +317,9 @@ function HowItWorksSection() {
           <p className="text-blue-200 text-lg max-w-2xl mx-auto leading-relaxed">Three simple steps to better performance</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
           {steps.map((step) => (
-            <div key={step.step} className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10 text-center hover:bg-white/15 transition-all duration-300">
+            <div key={step.step} className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/20 text-center hover:bg-white/15 transition-all duration-300 overflow-hidden">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-[#EF5E33] text-white flex items-center justify-center text-sm font-bold shadow-lg shadow-orange-500/30">
                 {step.step}
               </div>
@@ -357,7 +357,7 @@ function TestimonialsSection() {
   ]
 
   return (
-    <section className="py-28 lg:py-32 bg-gray-50">
+    <section className="py-28 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
           <p className="text-[#EF5E33] font-semibold text-sm uppercase tracking-wider mb-3">Testimonials</p>
@@ -369,11 +369,11 @@ function TestimonialsSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:-translate-y-1"
+              className="bg-white rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-1"
             >
               <div className="flex items-center gap-1 mb-5">
                 {Array.from({ length: 5 }).map((_, j) => (
@@ -436,7 +436,7 @@ function PricingSection() {
   ]
 
   return (
-    <section id="pricing" className="py-28 lg:py-32 bg-white">
+    <section id="pricing" className="py-28 lg:py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
           <p className="text-[#EF5E33] font-semibold text-sm uppercase tracking-wider mb-3">Pricing</p>
@@ -448,18 +448,18 @@ function PricingSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-5xl mx-auto">
           {plans.map((plan) => (
             <div
               key={plan.name}
               className={`relative bg-white rounded-2xl p-6 sm:p-8 border-2 transition-all duration-300 hover:-translate-y-1 ${
                 plan.popular
-                  ? 'border-[#EF5E33] shadow-xl shadow-orange-100 scale-[1.02]'
-                  : 'border-gray-100 hover:shadow-lg'
+                  ? 'border-[#EF5E33] shadow-xl shadow-orange-100 scale-[1.02] lg:scale-105'
+                  : 'border-gray-200 shadow-md hover:shadow-lg'
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#EF5E33] text-white text-xs font-bold rounded-full shadow-sm">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-1.5 bg-[#EF5E33] text-white text-xs font-bold rounded-full shadow-md z-10">
                   Most Popular
                 </div>
               )}
