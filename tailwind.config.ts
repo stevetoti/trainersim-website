@@ -9,6 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        brand: {
+          blue: {
+            DEFAULT: '#233C6F',
+            light: '#3B5998',
+            dark: '#1A2D54',
+          },
+          orange: {
+            DEFAULT: '#EF5E33',
+            light: '#FF7F50',
+            dark: '#D94E28',
+          },
+        },
         dark: {
           50: '#e8eaf0',
           100: '#c5c9d6',
