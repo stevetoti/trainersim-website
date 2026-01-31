@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-brand-blue: #233C6F;
-  --color-brand-blue-light: #3B5998;
-  --color-brand-blue-dark: #1A2D54;
-  --color-brand-orange: #EF5E33;
-  --color-brand-orange-light: #FF7F50;
-  --color-brand-orange-dark: #D94E28;
+  --color-deep-blue: #233C6F;
+  --color-deep-blue-light: #3B5998;
+  --color-deep-blue-dark: #1A2D54;
+  --color-vibrant-orange: #EF5E33;
+  --color-vibrant-orange-dark: #D94E28;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
@@ -19,6 +17,7 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 body {
@@ -29,6 +28,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }

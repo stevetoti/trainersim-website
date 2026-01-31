@@ -67,13 +67,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" style={{ colorScheme: 'light' }}>
       <head>
         <link rel="icon" href="/trainersim-logo.png" sizes="any" />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} font-sans antialiased bg-white text-gray-900`}>
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main>{children}</main>
         <Footer />
         <script
           type="application/ld+json"

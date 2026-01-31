@@ -121,127 +121,129 @@ const faqs = [
 
 export default function PricingPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div>
       {/* Header */}
-      <div className="bg-gradient-to-br from-brand-blue to-brand-blue-dark text-white py-16">
+      <section className="bg-gradient-to-br from-[#233C6F] to-[#1A2D54] text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold mb-4">Simple, Transparent Pricing</h1>
           <p className="text-blue-100 text-lg max-w-2xl mx-auto">
             Start free, scale as you grow. No hidden fees, no surprises. Cancel anytime.
           </p>
         </div>
-      </div>
+      </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Plan cards */}
-        <div className="grid lg:grid-cols-3 gap-6 mb-16 -mt-20 max-w-5xl mx-auto">
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              className={`relative bg-white rounded-xl p-6 border-2 shadow-lg ${
-                plan.popular
-                  ? 'border-brand-orange shadow-xl shadow-orange-100 scale-105 z-10'
-                  : 'border-gray-100'
-              }`}
-            >
-              {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-brand-orange text-white text-xs font-bold rounded-full">
-                  Most Popular
-                </div>
-              )}
-              <h3 className="text-lg font-bold text-brand-blue">{plan.name}</h3>
-              <div className="mt-4 mb-4">
-                <span className="text-4xl font-bold text-brand-blue">{plan.price}</span>
-                {plan.period && <span className="text-gray-500">{plan.period}</span>}
-              </div>
-              <p className="text-gray-600 text-sm mb-6">{plan.description}</p>
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm">
-                    <Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <a
-                href={plan.href}
-                className={`block text-center py-3 rounded-lg font-semibold transition-colors ${
+      <section className="bg-gray-50 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Plan cards */}
+          <div className="grid lg:grid-cols-3 gap-6 mb-16 -mt-20 max-w-5xl mx-auto">
+            {plans.map((plan) => (
+              <div
+                key={plan.name}
+                className={`relative bg-white rounded-xl p-6 border-2 shadow-lg ${
                   plan.popular
-                    ? 'bg-brand-orange hover:bg-brand-orange-dark text-white'
-                    : 'bg-brand-blue hover:bg-brand-blue-dark text-white'
+                    ? 'border-[#EF5E33] shadow-xl shadow-orange-100 scale-105 z-10'
+                    : 'border-gray-100'
                 }`}
               >
-                {plan.cta}
-              </a>
-            </div>
-          ))}
-        </div>
-
-        {/* Comparison table */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-          <div className="p-6 border-b border-gray-100">
-            <h2 className="text-2xl font-bold text-brand-blue">Compare Plans</h2>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-gray-50">
-                  <th className="text-left px-6 py-3 text-sm font-semibold text-gray-600">Feature</th>
-                  <th className="text-center px-4 py-3 text-sm font-semibold text-gray-600">Starter</th>
-                  <th className="text-center px-4 py-3 text-sm font-semibold text-brand-orange">Professional</th>
-                  <th className="text-center px-4 py-3 text-sm font-semibold text-gray-600">Enterprise</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-50">
-                {comparisonFeatures.map((row, i) => (
-                  <tr key={i} className="hover:bg-gray-50">
-                    <td className="px-6 py-3 text-sm text-gray-700">{row.feature}</td>
-                    {(['starter', 'professional', 'enterprise'] as const).map((plan) => (
-                      <td key={plan} className="px-4 py-3 text-sm text-center">
-                        {row[plan] === true ? (
-                          <Check className="w-5 h-5 text-green-500 mx-auto" />
-                        ) : row[plan] === false ? (
-                          <X className="w-5 h-5 text-gray-300 mx-auto" />
-                        ) : (
-                          <span className="text-gray-700">{row[plan]}</span>
-                        )}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* FAQ */}
-        <div className="mt-16">
-          <h2 className="text-2xl font-bold text-brand-blue text-center mb-8">Frequently Asked Questions</h2>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {faqs.map((faq, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                <h3 className="font-semibold text-brand-blue mb-2 flex items-center gap-2">
-                  <HelpCircle className="w-5 h-5 text-brand-orange shrink-0" />
-                  {faq.q}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
+                {plan.popular && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#EF5E33] text-white text-xs font-bold rounded-full">
+                    Most Popular
+                  </div>
+                )}
+                <h3 className="text-lg font-bold text-[#233C6F]">{plan.name}</h3>
+                <div className="mt-4 mb-4">
+                  <span className="text-4xl font-bold text-[#233C6F]">{plan.price}</span>
+                  {plan.period && <span className="text-gray-500">{plan.period}</span>}
+                </div>
+                <p className="text-gray-600 text-sm mb-6">{plan.description}</p>
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm">
+                      <Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={plan.href}
+                  className={`block text-center py-3 rounded-lg font-semibold transition-colors ${
+                    plan.popular
+                      ? 'bg-[#EF5E33] hover:bg-[#d94e28] text-white'
+                      : 'bg-[#233C6F] hover:bg-[#1A2D54] text-white'
+                  }`}
+                >
+                  {plan.cta}
+                </a>
               </div>
             ))}
           </div>
-        </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <p className="text-gray-600 mb-4">Still have questions?</p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-blue hover:bg-brand-blue-dark text-white font-semibold rounded-xl transition-all"
-          >
-            Talk to our team
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          {/* Comparison table */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <div className="p-6 border-b border-gray-100">
+              <h2 className="text-2xl font-bold text-[#233C6F]">Compare Plans</h2>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-gray-50">
+                    <th className="text-left px-6 py-3 text-sm font-semibold text-gray-600">Feature</th>
+                    <th className="text-center px-4 py-3 text-sm font-semibold text-gray-600">Starter</th>
+                    <th className="text-center px-4 py-3 text-sm font-semibold text-[#EF5E33]">Professional</th>
+                    <th className="text-center px-4 py-3 text-sm font-semibold text-gray-600">Enterprise</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-50">
+                  {comparisonFeatures.map((row, i) => (
+                    <tr key={i} className="hover:bg-gray-50">
+                      <td className="px-6 py-3 text-sm text-gray-700">{row.feature}</td>
+                      {(['starter', 'professional', 'enterprise'] as const).map((plan) => (
+                        <td key={plan} className="px-4 py-3 text-sm text-center">
+                          {row[plan] === true ? (
+                            <Check className="w-5 h-5 text-green-500 mx-auto" />
+                          ) : row[plan] === false ? (
+                            <X className="w-5 h-5 text-gray-300 mx-auto" />
+                          ) : (
+                            <span className="text-gray-700">{row[plan]}</span>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* FAQ */}
+          <div className="mt-16">
+            <h2 className="text-2xl font-bold text-[#233C6F] text-center mb-8">Frequently Asked Questions</h2>
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <h3 className="font-semibold text-[#233C6F] mb-2 flex items-center gap-2">
+                    <HelpCircle className="w-5 h-5 text-[#EF5E33] shrink-0" />
+                    {faq.q}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="text-center mt-16">
+            <p className="text-gray-600 mb-4">Still have questions?</p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#233C6F] hover:bg-[#1A2D54] text-white font-semibold rounded-xl transition-all"
+            >
+              Talk to our team
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   )
 }

@@ -110,14 +110,14 @@ const industries = [
 
 export default function UseCasesPage() {
   return (
-    <div className="min-h-screen">
+    <div>
       {/* Hero */}
-      <div className="bg-gradient-to-br from-brand-blue to-brand-blue-dark text-white py-20">
+      <section className="bg-gradient-to-br from-[#233C6F] to-[#1A2D54] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-5xl font-bold mb-6">
               Built for{' '}
-              <span className="text-brand-orange">Every Industry</span>
+              <span className="text-[#EF5E33]">Every Industry</span>
             </h1>
             <p className="text-blue-100 text-lg leading-relaxed">
               From healthcare to finance, TrainerSim adapts to the conversations that matter most 
@@ -126,7 +126,7 @@ export default function UseCasesPage() {
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Quick nav */}
       <div className="bg-white border-b border-gray-100 sticky top-16 z-40">
@@ -136,7 +136,7 @@ export default function UseCasesPage() {
               <a
                 key={ind.id}
                 href={`#${ind.id}`}
-                className="text-sm font-medium text-gray-600 hover:text-brand-blue whitespace-nowrap px-3 py-1.5 rounded-full hover:bg-gray-50 transition-colors"
+                className="text-sm font-medium text-gray-600 hover:text-[#233C6F] whitespace-nowrap px-3 py-1.5 rounded-full hover:bg-gray-50 transition-colors"
               >
                 {ind.icon} {ind.title}
               </a>
@@ -146,51 +146,53 @@ export default function UseCasesPage() {
       </div>
 
       {/* Industries */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="space-y-16">
-          {industries.map((ind, i) => (
-            <div key={ind.id} id={ind.id} className="scroll-mt-32">
-              <div className={`rounded-2xl ${ind.color} p-6 sm:p-8 lg:p-10`}>
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
-                  <div>
-                    <div className={`w-14 h-14 rounded-xl ${ind.iconBg} flex items-center justify-center text-3xl mb-4`}>
-                      {ind.icon}
+      <section className="bg-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-16">
+            {industries.map((ind) => (
+              <div key={ind.id} id={ind.id} className="scroll-mt-32">
+                <div className={`rounded-2xl ${ind.color} p-6 sm:p-8 lg:p-10`}>
+                  <div className="grid lg:grid-cols-2 gap-8 items-start">
+                    <div>
+                      <div className={`w-14 h-14 rounded-xl ${ind.iconBg} flex items-center justify-center text-3xl mb-4`}>
+                        {ind.icon}
+                      </div>
+                      <h2 className="text-2xl sm:text-3xl font-bold text-[#233C6F] mb-2">{ind.title}</h2>
+                      <p className="text-[#233C6F]/70 font-medium mb-4">{ind.subtitle}</p>
+                      <p className="text-gray-700 leading-relaxed mb-6">{ind.description}</p>
+                      <div className="bg-white rounded-xl p-4 border border-gray-100 mb-6">
+                        <p className="text-2xl font-bold text-[#EF5E33] mb-1">{ind.stat}</p>
+                        <p className="text-gray-600 text-sm">{ind.result}</p>
+                      </div>
+                      <a
+                        href={`${APP_URL}/auth`}
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-[#EF5E33] hover:bg-[#d94e28] text-white font-semibold rounded-xl transition-all shadow-sm"
+                      >
+                        Try {ind.title} Scenarios
+                        <ArrowRight className="w-4 h-4" />
+                      </a>
                     </div>
-                    <h2 className="text-2xl sm:text-3xl font-bold text-brand-blue mb-2">{ind.title}</h2>
-                    <p className="text-brand-blue/70 font-medium mb-4">{ind.subtitle}</p>
-                    <p className="text-gray-700 leading-relaxed mb-6">{ind.description}</p>
-                    <div className="bg-white rounded-xl p-4 border border-gray-100 mb-6">
-                      <p className="text-2xl font-bold text-brand-orange mb-1">{ind.stat}</p>
-                      <p className="text-gray-600 text-sm">{ind.result}</p>
-                    </div>
-                    <a
-                      href={`${APP_URL}/auth`}
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-xl transition-all shadow-sm"
-                    >
-                      Try {ind.title} Scenarios
-                      <ArrowRight className="w-4 h-4" />
-                    </a>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-brand-blue mb-4">Available Scenarios</h3>
-                    <div className="grid gap-2">
-                      {ind.scenarios.map((s, j) => (
-                        <div key={j} className="flex items-center gap-3 bg-white rounded-lg p-3 border border-gray-100">
-                          <Check className="w-4 h-4 text-green-500 shrink-0" />
-                          <span className="text-gray-700 text-sm">{s}</span>
-                        </div>
-                      ))}
+                    <div>
+                      <h3 className="font-semibold text-[#233C6F] mb-4">Available Scenarios</h3>
+                      <div className="grid gap-2">
+                        {ind.scenarios.map((s, j) => (
+                          <div key={j} className="flex items-center gap-3 bg-white rounded-lg p-3 border border-gray-100">
+                            <Check className="w-4 h-4 text-green-500 shrink-0" />
+                            <span className="text-gray-700 text-sm">{s}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* CTA */}
-      <div className="bg-gradient-to-br from-brand-blue to-brand-blue-dark text-white py-16">
+      <section className="bg-gradient-to-br from-[#233C6F] to-[#1A2D54] text-white py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">Don&apos;t See Your Industry?</h2>
           <p className="text-blue-100 text-lg mb-8">
@@ -199,7 +201,7 @@ export default function UseCasesPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`${APP_URL}/auth`}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-xl transition-all shadow-lg text-lg"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#EF5E33] hover:bg-[#d94e28] text-white font-semibold rounded-xl transition-all shadow-lg text-lg"
             >
               Start Free Trial
               <ArrowRight className="w-5 h-5" />
@@ -213,7 +215,7 @@ export default function UseCasesPage() {
             </Link>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   )
 }

@@ -88,14 +88,14 @@ export default function FeaturesPage() {
   ]
 
   return (
-    <div className="min-h-screen">
+    <div>
       {/* Hero */}
-      <div className="bg-gradient-to-br from-brand-blue to-brand-blue-dark text-white py-20">
+      <section className="bg-gradient-to-br from-[#233C6F] to-[#1A2D54] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-5xl font-bold mb-6">
               Powerful Features for{' '}
-              <span className="text-brand-orange">Modern Training</span>
+              <span className="text-[#EF5E33]">Modern Training</span>
             </h1>
             <p className="text-blue-100 text-lg leading-relaxed">
               TrainerSim combines cutting-edge AI technology with proven training methodologies to deliver 
@@ -103,94 +103,98 @@ export default function FeaturesPage() {
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Core Features */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-brand-blue mb-4">Core Platform Features</h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Everything you need to transform how your team trains and develops professional skills.
-          </p>
-        </div>
-        <div className="space-y-8">
-          {coreFeatures.map((feature, i) => (
-            <div
-              key={i}
-              className={`grid lg:grid-cols-2 gap-8 items-center ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
-            >
-              <div className={i % 2 !== 0 ? 'lg:order-2' : ''}>
-                <div className="w-14 h-14 rounded-xl bg-brand-orange/10 text-brand-orange flex items-center justify-center mb-4">
-                  {feature.icon}
-                </div>
-                <h3 className="text-2xl font-bold text-brand-blue mb-3">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed mb-4">{feature.description}</p>
-                <div className="grid grid-cols-2 gap-2">
-                  {feature.highlights.map((h, j) => (
-                    <div key={j} className="flex items-center gap-2 text-sm">
-                      <Check className="w-4 h-4 text-green-500 shrink-0" />
-                      <span className="text-gray-700">{h}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className={`bg-gradient-to-br from-brand-blue/5 to-brand-orange/5 rounded-2xl p-8 flex items-center justify-center min-h-[250px] ${i % 2 !== 0 ? 'lg:order-1' : ''}`}>
-                <div className="text-brand-blue/20">
-                  <div className="w-24 h-24">{feature.icon}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* How It Works */}
-      <div id="how-it-works" className="bg-gray-50 py-20">
+      <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-brand-blue mb-4">How It Works</h2>
+            <h2 className="text-3xl font-bold text-[#233C6F] mb-4">Core Platform Features</h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Everything you need to transform how your team trains and develops professional skills.
+            </p>
+          </div>
+          <div className="space-y-8">
+            {coreFeatures.map((feature, i) => (
+              <div
+                key={i}
+                className={`grid lg:grid-cols-2 gap-8 items-center`}
+              >
+                <div className={i % 2 !== 0 ? 'lg:order-2' : ''}>
+                  <div className="w-14 h-14 rounded-xl bg-[#EF5E33]/10 text-[#EF5E33] flex items-center justify-center mb-4">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#233C6F] mb-3">{feature.title}</h3>
+                  <p className="text-gray-600 leading-relaxed mb-4">{feature.description}</p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {feature.highlights.map((h, j) => (
+                      <div key={j} className="flex items-center gap-2 text-sm">
+                        <Check className="w-4 h-4 text-green-500 shrink-0" />
+                        <span className="text-gray-700">{h}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className={`bg-gradient-to-br from-[#233C6F]/5 to-[#EF5E33]/5 rounded-2xl p-8 flex items-center justify-center min-h-[250px] ${i % 2 !== 0 ? 'lg:order-1' : ''}`}>
+                  <div className="text-[#233C6F]/20">
+                    <div className="w-24 h-24">{feature.icon}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section id="how-it-works" className="bg-gray-50 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#233C6F] mb-4">How It Works</h2>
             <p className="text-gray-600 text-lg">Get started in minutes. No setup, no downloads.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 relative">
             {howItWorks.map((step) => (
               <div key={step.step} className="text-center relative">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-brand-blue/10 mb-4 relative">
-                  <div className="text-brand-blue">{step.icon}</div>
-                  <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-brand-orange text-white flex items-center justify-center text-xs font-bold">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-[#233C6F]/10 mb-4 relative">
+                  <div className="text-[#233C6F]">{step.icon}</div>
+                  <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-[#EF5E33] text-white flex items-center justify-center text-xs font-bold">
                     {step.step}
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold text-brand-blue mb-3">{step.title}</h3>
+                <h3 className="text-xl font-semibold text-[#233C6F] mb-3">{step.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Additional Features Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-brand-blue mb-4">And Much More</h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Every feature you need to run a world-class training program
-          </p>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {additionalFeatures.map((f, i) => (
-            <div key={i} className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 rounded-lg bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-3">
-                {f.icon}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#233C6F] mb-4">And Much More</h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Every feature you need to run a world-class training program
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {additionalFeatures.map((f, i) => (
+              <div key={i} className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div className="w-10 h-10 rounded-lg bg-[#233C6F]/10 text-[#233C6F] flex items-center justify-center mb-3">
+                  {f.icon}
+                </div>
+                <h3 className="font-semibold text-[#233C6F] mb-1">{f.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
               </div>
-              <h3 className="font-semibold text-brand-blue mb-1">{f.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* CTA */}
-      <div className="bg-gradient-to-br from-brand-blue to-brand-blue-dark text-white py-16">
+      <section className="bg-gradient-to-br from-[#233C6F] to-[#1A2D54] text-white py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-6">Experience TrainerSim Today</h2>
           <p className="text-blue-100 text-lg mb-8">
@@ -198,13 +202,13 @@ export default function FeaturesPage() {
           </p>
           <a
             href={`${APP_URL}/auth`}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-xl transition-all shadow-lg text-lg"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#EF5E33] hover:bg-[#d94e28] text-white font-semibold rounded-xl transition-all shadow-lg text-lg"
           >
             Start Free Trial
             <ArrowRight className="w-5 h-5" />
           </a>
         </div>
-      </div>
+      </section>
     </div>
   )
 }

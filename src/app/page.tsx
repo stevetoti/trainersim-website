@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import {
   Users, Video, BarChart3, Settings, Shield, Trophy,
   ArrowRight, Check, Play, Star, ChevronRight, Sparkles,
@@ -10,10 +9,10 @@ const APP_URL = 'https://app.trainersim.com'
 
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-brand-blue via-[#1e3461] to-brand-blue-dark text-white">
-      {/* Background pattern */}
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#233C6F] via-[#1e3461] to-[#1A2D54] text-white">
+      {/* Background decoration */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-brand-orange rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-[#EF5E33] rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-400 rounded-full blur-3xl" />
       </div>
 
@@ -21,12 +20,12 @@ function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-6 backdrop-blur-sm">
-              <Sparkles className="w-4 h-4 text-brand-orange" />
-              <span>190 AI Agents · 12 Industries · Video & Audio</span>
+              <Sparkles className="w-4 h-4 text-[#EF5E33]" />
+              <span>190 AI Agents · 12 Industries · Video &amp; Audio</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Master Every{' '}
-              <span className="text-brand-orange">Conversation</span>
+              <span className="text-[#EF5E33]">Conversation</span>
               <br />
               Before It Happens
             </h1>
@@ -37,7 +36,7 @@ function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href={`${APP_URL}/auth`}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-xl transition-all shadow-lg shadow-orange-500/25 text-lg"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#EF5E33] hover:bg-[#d94e28] text-white font-semibold rounded-xl transition-all shadow-lg shadow-orange-500/25 text-lg"
               >
                 Start Training Free
                 <ArrowRight className="w-5 h-5" />
@@ -71,19 +70,19 @@ function HeroSection() {
                   <p className="text-blue-200 text-xs mb-2">Sales Training Simulation</p>
                   <div className="space-y-3">
                     <div className="flex gap-3">
-                      <div className="w-8 h-8 rounded-full bg-brand-orange flex items-center justify-center text-xs shrink-0">AI</div>
+                      <div className="w-8 h-8 rounded-full bg-[#EF5E33] flex items-center justify-center text-xs shrink-0">AI</div>
                       <div className="bg-white/10 rounded-lg rounded-tl-none px-3 py-2 text-sm">
                         I&apos;m interested, but the price seems high compared to your competitors...
                       </div>
                     </div>
                     <div className="flex gap-3 justify-end">
-                      <div className="bg-brand-orange/20 rounded-lg rounded-tr-none px-3 py-2 text-sm">
+                      <div className="bg-[#EF5E33]/20 rounded-lg rounded-tr-none px-3 py-2 text-sm">
                         Great question! Let me walk you through the ROI our clients typically see...
                       </div>
                       <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-xs shrink-0">You</div>
                     </div>
                     <div className="flex gap-3">
-                      <div className="w-8 h-8 rounded-full bg-brand-orange flex items-center justify-center text-xs shrink-0">AI</div>
+                      <div className="w-8 h-8 rounded-full bg-[#EF5E33] flex items-center justify-center text-xs shrink-0">AI</div>
                       <div className="bg-white/10 rounded-lg rounded-tl-none px-3 py-2 text-sm">
                         That&apos;s compelling. What kind of timeline are we looking at? 🤔
                       </div>
@@ -94,15 +93,15 @@ function HeroSection() {
                 {/* Stats row */}
                 <div className="grid grid-cols-3 gap-3">
                   <div className="bg-white/10 rounded-lg p-3 text-center">
-                    <p className="text-2xl font-bold text-brand-orange">190+</p>
+                    <p className="text-2xl font-bold text-[#EF5E33]">190+</p>
                     <p className="text-xs text-blue-200">AI Agents</p>
                   </div>
                   <div className="bg-white/10 rounded-lg p-3 text-center">
-                    <p className="text-2xl font-bold text-brand-orange">12</p>
+                    <p className="text-2xl font-bold text-[#EF5E33]">12</p>
                     <p className="text-xs text-blue-200">Industries</p>
                   </div>
                   <div className="bg-white/10 rounded-lg p-3 text-center">
-                    <p className="text-2xl font-bold text-brand-orange">95%</p>
+                    <p className="text-2xl font-bold text-[#EF5E33]">95%</p>
                     <p className="text-xs text-blue-200">Satisfaction</p>
                   </div>
                 </div>
@@ -119,7 +118,7 @@ function StatsSection() {
   const stats = [
     { value: '10,000+', label: 'Training Sessions' },
     { value: '95%', label: 'Satisfaction Rate' },
-    { value: '40%', label: 'Performance Boost' },
+    { value: '40%', label: 'Performance Improvement' },
     { value: '500+', label: 'Organizations' },
   ]
 
@@ -129,7 +128,7 @@ function StatsSection() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
-              <p className="text-3xl lg:text-4xl font-bold text-brand-orange mb-1">{stat.value}</p>
+              <p className="text-3xl lg:text-4xl font-bold text-[#EF5E33] mb-1">{stat.value}</p>
               <p className="text-gray-600">{stat.label}</p>
             </div>
           ))}
@@ -143,18 +142,18 @@ function FeaturesSection() {
   const features = [
     {
       icon: <Users className="w-6 h-6" />,
-      title: 'AI Simulations',
-      description: '190 AI agents across 12 categories. Each persona stays 100% in character with realistic responses and adaptive conversation flow.',
+      title: '190 AI Training Agents',
+      description: 'Each AI persona stays 100% in character with realistic responses, emotions, and adaptive conversation flow across 12 industry categories.',
     },
     {
       icon: <Video className="w-6 h-6" />,
       title: 'Video & Audio Modes',
-      description: 'Premium video avatars powered by Anam AI or cost-effective audio mode with ElevenLabs voices.',
+      description: 'Premium video avatars powered by Anam AI or cost-effective audio mode with ElevenLabs voices. Choose the experience that fits.',
     },
     {
       icon: <BarChart3 className="w-6 h-6" />,
       title: 'Real-Time Scoring',
-      description: 'Weighted scoring across Communication, Knowledge, Confidence, Problem Solving, and Professionalism.',
+      description: 'Weighted scoring across Communication, Knowledge, Confidence, Problem Solving, and Professionalism with time-based validation.',
     },
     {
       icon: <Settings className="w-6 h-6" />,
@@ -163,13 +162,13 @@ function FeaturesSection() {
     },
     {
       icon: <Trophy className="w-6 h-6" />,
-      title: 'Gamification',
-      description: 'Points, badges, leaderboards, and 12 learning pathways with certifications to keep your team motivated.',
+      title: 'Gamification & Pathways',
+      description: 'Points, badges, leaderboards, and 12 learning pathways with certifications to keep your team motivated and progressing.',
     },
     {
       icon: <Shield className="w-6 h-6" />,
       title: 'Safe Practice Environment',
-      description: 'Practice difficult conversations risk-free before facing real-world situations. Build confidence safely.',
+      description: 'Practice difficult conversations risk-free before facing real-world situations. Build confidence safely with zero consequences.',
     },
   ]
 
@@ -177,7 +176,7 @@ function FeaturesSection() {
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-brand-blue mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Everything You Need to Transform Training
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -190,10 +189,10 @@ function FeaturesSection() {
               key={i}
               className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
-              <div className="w-12 h-12 rounded-lg bg-brand-orange/10 text-brand-orange flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-[#EF5E33]/10 text-[#EF5E33] flex items-center justify-center mb-4">
                 {feature.icon}
               </div>
-              <h3 className="text-lg font-semibold text-brand-blue mb-2">{feature.title}</h3>
+              <h3 className="text-lg font-semibold text-[#233C6F] mb-2">{feature.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
             </div>
           ))}
@@ -201,7 +200,7 @@ function FeaturesSection() {
         <div className="text-center mt-8">
           <Link
             href="/features"
-            className="text-brand-orange hover:text-brand-orange-dark font-medium inline-flex items-center gap-1"
+            className="text-[#EF5E33] hover:text-[#d94e28] font-medium inline-flex items-center gap-1"
           >
             Explore all features
             <ChevronRight className="w-4 h-4" />
@@ -214,19 +213,19 @@ function FeaturesSection() {
 
 function UseCasesSection() {
   const useCases = [
-    { icon: '💼', title: 'Sales', desc: 'Objection handling, discovery calls, and deal closing with AI prospects.' },
-    { icon: '🏥', title: 'Healthcare', desc: 'Patient communication, clinical empathy, and bedside manner training.' },
+    { icon: '💼', title: 'Sales', desc: 'Objection handling, discovery calls, and high-pressure deal closing with AI prospects.' },
+    { icon: '🏥', title: 'Healthcare', desc: 'Patient communication, clinical empathy, and bedside manner training with AI patients.' },
     { icon: '🎧', title: 'Customer Service', desc: 'De-escalation, empathy building, and first-call resolution practice.' },
     { icon: '⚖️', title: 'Legal', desc: 'Client consultations, case discussions, and negotiation practice.' },
-    { icon: '💰', title: 'Finance', desc: 'Investment advisory, financial planning, and sensitive conversations.' },
-    { icon: '👥', title: 'HR', desc: 'Performance reviews, conflict resolution, and difficult discussions.' },
+    { icon: '💰', title: 'Finance', desc: 'Investment advisory, financial planning, and sensitive money conversations.' },
+    { icon: '👥', title: 'HR', desc: 'Performance reviews, conflict resolution, and difficult employee discussions.' },
   ]
 
   return (
-    <section className="py-20">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-brand-blue mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Built for Every Industry
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -239,14 +238,14 @@ function UseCasesSection() {
               key={i}
               className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
-              <div className="w-12 h-12 rounded-lg bg-brand-blue/5 flex items-center justify-center mb-4 text-2xl">
+              <div className="w-12 h-12 rounded-lg bg-[#233C6F]/5 flex items-center justify-center mb-4 text-2xl">
                 {uc.icon}
               </div>
-              <h3 className="text-lg font-semibold text-brand-blue mb-2">{uc.title}</h3>
+              <h3 className="text-lg font-semibold text-[#233C6F] mb-2">{uc.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">{uc.desc}</p>
               <a
                 href={`${APP_URL}/auth`}
-                className="inline-flex items-center gap-1 text-sm font-medium text-brand-orange hover:text-brand-orange-dark transition-colors"
+                className="inline-flex items-center gap-1 text-sm font-medium text-[#EF5E33] hover:text-[#d94e28] transition-colors"
               >
                 Try {uc.title} scenarios
                 <ChevronRight className="w-4 h-4" />
@@ -257,7 +256,7 @@ function UseCasesSection() {
         <div className="text-center mt-8">
           <Link
             href="/use-cases"
-            className="text-brand-orange hover:text-brand-orange-dark font-medium inline-flex items-center gap-1"
+            className="text-[#EF5E33] hover:text-[#d94e28] font-medium inline-flex items-center gap-1"
           >
             View all use cases
             <ChevronRight className="w-4 h-4" />
@@ -286,12 +285,12 @@ function HowItWorksSection() {
       step: '03',
       icon: <Zap className="w-8 h-8" />,
       title: 'Review & Improve',
-      desc: 'Get detailed scoring across 5 dimensions, read transcripts, download PDF reports, and track your progress.',
+      desc: 'Get detailed scoring across 5 dimensions, read transcripts, download PDF reports, and track progress over time.',
     },
   ]
 
   return (
-    <section className="py-16 bg-brand-orange">
+    <section className="py-16 bg-[#EF5E33]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         <h2 className="text-2xl sm:text-3xl font-bold mb-2">How It Works</h2>
         <p className="text-orange-100 text-lg mb-10">Three simple steps to better performance</p>
@@ -301,7 +300,7 @@ function HowItWorksSection() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 mb-4">
                 <div className="text-white">{step.icon}</div>
               </div>
-              <div className="absolute -top-2 left-1/2 ml-6 w-7 h-7 rounded-full bg-white text-brand-orange flex items-center justify-center text-xs font-bold">
+              <div className="absolute -top-2 left-1/2 ml-6 w-7 h-7 rounded-full bg-white text-[#EF5E33] flex items-center justify-center text-xs font-bold">
                 {step.step}
               </div>
               <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
@@ -337,7 +336,7 @@ function TestimonialsSection() {
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-brand-blue mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Loved by Training Leaders
           </h2>
           <p className="text-gray-600 text-lg">
@@ -359,11 +358,11 @@ function TestimonialsSection() {
                 &quot;{t.quote}&quot;
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center text-sm font-bold">
+                <div className="w-10 h-10 rounded-full bg-[#233C6F] text-white flex items-center justify-center text-sm font-bold">
                   {t.name.split(' ').map((n) => n[0]).join('')}
                 </div>
                 <div>
-                  <p className="font-medium text-brand-blue text-sm">{t.name}</p>
+                  <p className="font-medium text-[#233C6F] text-sm">{t.name}</p>
                   <p className="text-gray-500 text-xs">{t.role}</p>
                 </div>
               </div>
@@ -407,10 +406,10 @@ function PricingPreviewSection() {
   ]
 
   return (
-    <section className="py-20">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-brand-blue mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Simple, Transparent Pricing
           </h2>
           <p className="text-gray-600 text-lg">
@@ -423,18 +422,18 @@ function PricingPreviewSection() {
               key={plan.name}
               className={`relative bg-white rounded-xl p-6 border-2 transition-shadow ${
                 plan.popular
-                  ? 'border-brand-orange shadow-lg shadow-orange-100'
+                  ? 'border-[#EF5E33] shadow-lg shadow-orange-100'
                   : 'border-gray-100 hover:shadow-md'
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-brand-orange text-white text-xs font-bold rounded-full">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#EF5E33] text-white text-xs font-bold rounded-full">
                   Most Popular
                 </div>
               )}
-              <h3 className="text-lg font-bold text-brand-blue">{plan.name}</h3>
+              <h3 className="text-lg font-bold text-[#233C6F]">{plan.name}</h3>
               <div className="mt-3 mb-4">
-                <span className="text-3xl font-bold text-brand-blue">{plan.price}</span>
+                <span className="text-3xl font-bold text-[#233C6F]">{plan.price}</span>
                 {plan.period && <span className="text-gray-500 text-sm">{plan.period}</span>}
               </div>
               <p className="text-gray-600 text-sm mb-5">{plan.description}</p>
@@ -450,8 +449,8 @@ function PricingPreviewSection() {
                 href={plan.name === 'Enterprise' ? '/contact' : `${APP_URL}/auth`}
                 className={`block text-center py-2.5 rounded-lg font-medium text-sm transition-colors ${
                   plan.popular
-                    ? 'bg-brand-orange hover:bg-brand-orange-dark text-white'
-                    : 'bg-gray-100 hover:bg-gray-200 text-brand-blue'
+                    ? 'bg-[#EF5E33] hover:bg-[#d94e28] text-white'
+                    : 'bg-gray-100 hover:bg-gray-200 text-[#233C6F]'
                 }`}
               >
                 {plan.cta}
@@ -462,7 +461,7 @@ function PricingPreviewSection() {
         <div className="text-center mt-8">
           <Link
             href="/pricing"
-            className="text-brand-orange hover:text-brand-orange-dark font-medium inline-flex items-center gap-1"
+            className="text-[#EF5E33] hover:text-[#d94e28] font-medium inline-flex items-center gap-1"
           >
             Compare all plans
             <ChevronRight className="w-4 h-4" />
@@ -475,7 +474,7 @@ function PricingPreviewSection() {
 
 function CTASection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-brand-blue to-brand-blue-dark text-white">
+    <section className="py-20 bg-gradient-to-br from-[#233C6F] to-[#1A2D54] text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl sm:text-4xl font-bold mb-6">
           Ready to Transform Your Training?
@@ -486,7 +485,7 @@ function CTASection() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href={`${APP_URL}/auth`}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-xl transition-all shadow-lg shadow-orange-500/25 text-lg"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#EF5E33] hover:bg-[#d94e28] text-white font-semibold rounded-xl transition-all shadow-lg shadow-orange-500/25 text-lg"
           >
             Get Started Free
             <ArrowRight className="w-5 h-5" />
@@ -503,7 +502,7 @@ function CTASection() {
             {['SC', 'ML', 'JW', 'TK'].map((initials, i) => (
               <div
                 key={i}
-                className="w-8 h-8 rounded-full bg-white/20 border-2 border-brand-blue flex items-center justify-center text-xs font-bold"
+                className="w-8 h-8 rounded-full bg-white/20 border-2 border-[#233C6F] flex items-center justify-center text-xs font-bold"
               >
                 {initials}
               </div>
