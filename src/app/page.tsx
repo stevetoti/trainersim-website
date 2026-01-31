@@ -184,7 +184,7 @@ function FeaturesSection() {
   return (
     <section id="features" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Everything You Need to Transform Training
           </h2>
@@ -193,11 +193,11 @@ function FeaturesSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, i) => (
             <div
               key={i}
-              className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+              className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
               <div className="w-12 h-12 rounded-lg bg-[#EF5E33]/10 text-[#EF5E33] flex items-center justify-center mb-4">
                 {feature.icon}
@@ -236,7 +236,7 @@ function UseCasesSection() {
   return (
     <section id="use-cases" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Built for Every Industry
           </h2>
@@ -245,11 +245,11 @@ function UseCasesSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {useCases.map((uc, i) => (
             <div
               key={i}
-              className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+              className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
               <div className="w-12 h-12 rounded-lg bg-[#EF5E33]/10 text-[#EF5E33] flex items-center justify-center mb-4">
                 {uc.icon}
@@ -307,12 +307,12 @@ function HowItWorksSection() {
   return (
     <section className="py-24 bg-gradient-to-br from-[#233C6F] to-[#162849] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">How It Works</h2>
           <p className="text-blue-200 text-lg max-w-2xl mx-auto">Three simple steps to better performance</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step) => (
             <div key={step.step} className="relative bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/10 text-center">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#EF5E33] text-white flex items-center justify-center text-sm font-bold shadow-lg">
@@ -354,7 +354,7 @@ function TestimonialsSection() {
   return (
     <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Loved by Training Leaders
           </h2>
@@ -363,11 +363,11 @@ function TestimonialsSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="bg-white rounded-xl p-6 shadow-sm border border-gray-100"
+              className="bg-white rounded-xl p-8 shadow-sm border border-gray-100"
             >
               <div className="flex items-center gap-1 mb-4">
                 {Array.from({ length: 5 }).map((_, j) => (
@@ -432,7 +432,7 @@ function PricingSection() {
   return (
     <section id="pricing" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#233C6F] mb-4">
             Simple, Transparent Pricing
           </h2>
@@ -441,11 +441,11 @@ function PricingSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative bg-white rounded-xl p-6 border-2 transition-shadow ${
+              className={`relative bg-white rounded-xl p-8 border-2 transition-shadow ${
                 plan.popular
                   ? 'border-[#EF5E33] shadow-lg shadow-orange-100'
                   : 'border-gray-100 hover:shadow-md'
