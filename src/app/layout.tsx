@@ -10,6 +10,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.trainersim.com'),
   title: {
     default: 'TrainerSim — AI-Powered Training Simulations',
     template: '%s | TrainerSim',

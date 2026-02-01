@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
-  Users, Video, BarChart3, Settings, Shield, Trophy,
+  Users, BarChart3, Settings, Shield, Trophy,
   ArrowRight, Check, Headphones, MessageSquare, Zap,
   Brain, FileText, UserCheck, Globe, Layers, Target,
   Monitor, Mic, Bot
@@ -140,9 +140,29 @@ export default function FeaturesPage() {
                     ))}
                   </div>
                 </div>
-                <div className={`bg-gradient-to-br from-[#233C6F]/5 to-[#EF5E33]/5 rounded-2xl p-10 flex items-center justify-center min-h-[280px] border border-gray-100 ${i % 2 !== 0 ? 'lg:order-1' : ''}`}>
-                  <div className="text-[#233C6F]/15 w-28 h-28">
-                    {feature.icon}
+                <div className={`bg-gradient-to-br from-[#233C6F]/5 to-[#EF5E33]/5 rounded-2xl p-8 min-h-[280px] border border-gray-100 flex flex-col justify-center ${i % 2 !== 0 ? 'lg:order-1' : ''}`}>
+                  <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 mb-3">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-[#EF5E33]/10 text-[#EF5E33] flex items-center justify-center">
+                        {feature.icon}
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-[#233C6F]">{feature.title}</p>
+                        <p className="text-xs text-gray-400">TrainerSim Platform</p>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      {feature.highlights.map((h, j) => (
+                        <div key={j} className="flex items-center gap-1.5 text-xs text-gray-600 bg-gray-50 rounded-lg px-2.5 py-1.5">
+                          <Check className="w-3 h-3 text-green-500 shrink-0" />
+                          {h}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between bg-white/60 rounded-lg px-4 py-2.5 border border-gray-100">
+                    <span className="text-xs text-gray-500">Ready to use</span>
+                    <span className="text-xs font-semibold text-[#EF5E33]">Included in all plans</span>
                   </div>
                 </div>
               </div>

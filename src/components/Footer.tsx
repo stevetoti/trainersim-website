@@ -24,14 +24,14 @@ const FOOTER_LINKS = {
   company: [
     { label: 'About Us', href: '/about' },
     { label: 'Contact', href: '/contact' },
-    { label: 'Privacy Policy', href: '#privacy' },
-    { label: 'Terms of Service', href: '#terms' },
+    { label: 'Privacy Policy', href: '/privacy' },
+    { label: 'Terms of Service', href: '/terms' },
   ],
   support: [
-    { label: 'Help Center', href: '#help' },
-    { label: 'Documentation', href: '#docs' },
-    { label: 'API Reference', href: '#api' },
-    { label: 'Status', href: '#status' },
+    { label: 'Help Center', href: '/contact' },
+    { label: 'Documentation', href: '/features#how-it-works' },
+    { label: 'Request a Demo', href: '/contact' },
+    { label: 'Start Free Trial', href: `${APP_URL}/auth` },
   ],
 }
 

@@ -76,19 +76,22 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="bg-gradient-to-br from-[#233C6F]/5 to-[#EF5E33]/5 rounded-2xl p-10 border border-gray-100">
-              <div className="grid grid-cols-2 gap-8">
+              <h3 className="text-xl font-bold text-[#233C6F] mb-6">Why Organizations Choose TrainerSim</h3>
+              <div className="space-y-5">
                 {[
-                  { icon: <Users className="w-8 h-8" />, number: '500+', label: 'Organizations' },
-                  { icon: <BarChart3 className="w-8 h-8" />, number: '10,000+', label: 'Training Sessions' },
-                  { icon: <Globe className="w-8 h-8" />, number: '12', label: 'Industries' },
-                  { icon: <Award className="w-8 h-8" />, number: '190+', label: 'AI Agents' },
-                ].map((stat, i) => (
-                  <div key={i} className="text-center">
-                    <div className="w-16 h-16 rounded-2xl bg-[#233C6F]/10 text-[#233C6F] flex items-center justify-center mx-auto mb-3">
-                      {stat.icon}
+                  { icon: <Zap className="w-5 h-5" />, title: '24/7 Availability', desc: 'Train anytime, anywhere — no scheduling needed.' },
+                  { icon: <BarChart3 className="w-5 h-5" />, title: 'Measurable Results', desc: 'Every session produces data-driven insights and scores.' },
+                  { icon: <Globe className="w-5 h-5" />, title: 'Scales Instantly', desc: 'From 5 users to 5,000 — no additional trainers required.' },
+                  { icon: <Heart className="w-5 h-5" />, title: 'Risk-Free Practice', desc: 'Make mistakes safely before facing real-world situations.' },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-[#EF5E33]/10 text-[#EF5E33] flex items-center justify-center shrink-0">
+                      {item.icon}
                     </div>
-                    <p className="text-2xl font-bold text-[#233C6F]">{stat.number}</p>
-                    <p className="text-gray-600 text-sm">{stat.label}</p>
+                    <div>
+                      <p className="font-semibold text-[#233C6F] text-sm">{item.title}</p>
+                      <p className="text-gray-600 text-sm">{item.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>
