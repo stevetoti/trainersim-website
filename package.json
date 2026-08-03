@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:branding": "node scripts/verify-branding.mjs"
   },
   "dependencies": {
     "@eslint/eslintrc": "^3.3.3",

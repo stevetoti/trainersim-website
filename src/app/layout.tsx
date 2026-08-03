@@ -31,6 +31,22 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Pacific Wave Digital' }],
   creator: 'TrainerSim',
+  icons: {
+    icon: [
+      {
+        url: '/favicon.png?v=20260803',
+        type: 'image/png',
+        sizes: '128x128',
+      },
+      {
+        url: '/favicon.ico?v=20260803',
+        type: 'image/x-icon',
+        sizes: '32x32',
+      },
+    ],
+    shortcut: '/favicon.png?v=20260803',
+    apple: '/apple-touch-icon.png?v=20260803',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -69,9 +85,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" style={{ colorScheme: 'light' }}>
-      <head>
-        <link rel="icon" href="/trainersim-logo.png" sizes="any" />
-      </head>
       <body className={`${inter.variable} font-sans antialiased bg-white text-gray-900`}>
         <Navbar />
         <main>{children}</main>
